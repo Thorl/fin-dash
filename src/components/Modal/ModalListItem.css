@@ -1,0 +1,12 @@
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.1rem solid #eee;
+  padding: 1rem;
+  color: #0a8e27de;
+}
+
+.list-item button {
+  cursor: pointer;
+}
