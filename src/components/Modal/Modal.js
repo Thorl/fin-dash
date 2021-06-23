@@ -1,5 +1,5 @@
 import "./Modal.css";
-import ModalGraphList from "./ModalGraphList";
+import ModalList from "./ModalList";
 import { useState } from "react";
 import ReactDOM from "react-dom";
 
@@ -8,10 +8,10 @@ const ModalOverlay = (props) => {
     props.onClose(false);
   };
 
-  const [currentGraphList, setCurrentGraphs] = useState("stock-market-indexes");
+  const [currentChartList, setCurrentCharts] = useState("stock-market-indexes");
 
-  const graphListHandler = (event) => {
-    setCurrentGraphs(event.target.id);
+  const chartListHandler = (event) => {
+    setCurrentCharts(event.target.id);
   };
   return (
     <div className={`modal ${props.show ? "show" : ""}`} onClick={closeModal}>
@@ -20,28 +20,28 @@ const ModalOverlay = (props) => {
           <h4
             className="modal-title"
             id="stock-market-indexes"
-            onClick={graphListHandler}
+            onClick={chartListHandler}
           >
             Stock market indexes
           </h4>
           <h4
             className="modal-title"
             id="commodities"
-            onClick={graphListHandler}
+            onClick={chartListHandler}
           >
             Commodities
           </h4>
           <h4
             className="modal-title"
             id="currencies"
-            onClick={graphListHandler}
+            onClick={chartListHandler}
           >
             Currencies
           </h4>
           <h4
             className="modal-title"
             id="cryptocurrencies"
-            onClick={graphListHandler}
+            onClick={chartListHandler}
           >
             Cryptocurrencies
           </h4>
@@ -50,9 +50,9 @@ const ModalOverlay = (props) => {
           <input type="text" placeholder="Enter your search here"></input>
         </div>
         <div className="modal-body">
-          <ModalGraphList
-            graphList={currentGraphList}
-            onAddGraph={props.onAddGraph}
+          <ModalList
+            chartList={currentChartList}
+            onAddChart={props.onAddChart}
           />
         </div>
         <div className="modal-footer">
@@ -72,7 +72,7 @@ const Modal = (props) => {
         <ModalOverlay
           onClose={props.onClose}
           show={props.show}
-          onAddGraph={props.onAddGraph}
+          onAddChart={props.onAddChart}
         />,
         document.getElementById("modal-overlay")
       )}

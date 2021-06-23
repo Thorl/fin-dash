@@ -20,7 +20,7 @@ const Header = (props) => {
       </div>
       <h1>FinDash</h1>
       <button class="header-item" onClick={toggleModalHandler}>
-        Add graph
+        Add chart
       </button>
     </header>
   );

@@ -2,12 +2,11 @@ import "./ModalListItem.css";
 
 const ModalListItem = (props) => {
   const selectListItemHandler = () => {
-    props.onAddGraph({ title: props.title });
+    props.onAddChart();
   };
   return (
     <div class="list-item">
-      <h2>{props.title}</h2>
-      <button onClick={selectListItemHandler}>Select</button>
+      <button onClick={selectListItemHandler}>Add Chart</button>
     </div>
   );
 };

@@ -6,6 +6,10 @@
   background: #f4f4f4;
   font-size: 1.3rem;
   font-weight: bold;
-  height: auto;
-  width: auto;
+  height: 500px;
+  width: 600px;
+}
+
+.chart-style {
+  z-index: 0;
 }

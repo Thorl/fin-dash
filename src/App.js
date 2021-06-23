@@ -8,21 +8,21 @@ function App() {
   const [show, setShow] = useState(false);
 
   // Set state for selected graphs
-  const defaultGraph = [{ title: "NASDAQ" }];
+  const defaultChart = [{ title: "NASDAQ" }];
 
-  const [graphs, setGraphs] = useState(defaultGraph);
+  const [charts, setCharts] = useState(defaultChart);
 
-  const addGraphHandler = (newGraph) => {
-    setGraphs((previousGraphs) => {
-      return [...previousGraphs, newGraph];
+  const addChartHandler = (newChart) => {
+    setCharts((previousCharts) => {
+      return [...previousCharts, newChart];
     });
   };
 
   return (
     <>
       <Header toggleModal={setShow} />
-      <Dashboard selectedGraphs={graphs} />
-      <Modal show={show} onClose={setShow} onAddGraph={addGraphHandler} />
+      <Dashboard selectedCharts={charts} />
+      <Modal show={show} onClose={setShow} onAddChart={addChartHandler} />
     </>
   );
 }
