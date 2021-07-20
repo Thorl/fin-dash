@@ -1,12 +1,13 @@
-.list-item {
+.search-result {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 0.1rem solid #eee;
-  padding: 1rem;
+  padding: 1rem 2rem 1rem 1rem;
   color: #0a8e27de;
+  overflow: hidden;
 }
 
-.list-item button {
+.search-result button {
   cursor: pointer;
 }

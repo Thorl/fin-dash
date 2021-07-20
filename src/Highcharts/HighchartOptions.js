@@ -1,3 +1,9 @@
+const dummyData = [];
+
+for (let i = 0; i <= 366; i++) {
+  dummyData.push(i);
+}
+
 const highchartOptions = {
   title: {
     text: "Dummy Chart",
@@ -13,7 +19,7 @@ const highchartOptions = {
   rangeSelector: {
     buttons: [
       {
-        type: "day",
+        type: "year",
         count: 1,
         text: "1d",
         title: "View 1 day",
@@ -29,7 +35,7 @@ const highchartOptions = {
         title: "View 1 week",
         dataGrouping: {
           forced: true,
-          units: [["week", [1]]],
+          units: [["day", [1]]],
         },
       },
       {
@@ -39,17 +45,17 @@ const highchartOptions = {
         title: "View 1 month",
         dataGrouping: {
           forced: true,
-          units: [["month", [1]]],
+          units: [["day", [1]]],
         },
       },
       {
         type: "month",
-        count: 6,
-        text: "6m",
-        title: "View 6 months",
+        count: 3,
+        text: "3m",
+        title: "View 3 months",
         dataGrouping: {
           forced: true,
-          units: [["month", [6]]],
+          units: [["day", [1]]],
         },
       },
       {
@@ -59,7 +65,7 @@ const highchartOptions = {
         title: "View 1 year",
         dataGrouping: {
           forced: true,
-          units: [["year", [1]]],
+          units: [["day", [1]]],
         },
       },
       {
@@ -76,9 +82,10 @@ const highchartOptions = {
   },
   series: [
     {
-      data: [
-        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-      ],
+      name: "Dummy Corp",
+      pointStart: Date.UTC(2020, 0, 1),
+      pointInterval: 24 * 3600 * 1000,
+      data: dummyData,
     },
   ],
 };

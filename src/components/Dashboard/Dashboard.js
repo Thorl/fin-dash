@@ -4,7 +4,7 @@ import DashboardItem from "./DashboardItem";
 const Dashboard = (props) => {
   return (
     <div id="dashboard-grid">
-      {props.selectedCharts.map((index) => (
+      {props.selectedCharts.map((item, index) => (
         <DashboardItem key={index} />
       ))}
     </div>
