@@ -1,8 +1,8 @@
 import SearchResult from "./SearchResult";
-import getStockSymbols from "../../Finnhub/Finnhub";
+import { getStockSymbols } from "../../AlphaVantage/AlphaVantage";
 import { useRef, useEffect, useState } from "react";
 
-const SearchFunction = () => {
+const SearchFunction = (props) => {
   const [searchResults, setSearchResults] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -48,15 +48,9 @@ const SearchFunction = () => {
   return (
     <>
       <div className="modal-header">
-        <h4 className="modal-title" id="stocks">
-          Stocks
-        </h4>
-        <h4 className="modal-title" id="currencies">
-          Currencies
-        </h4>
-        <h4 className="modal-title" id="cryptocurrencies">
-          Cryptocurrencies
-        </h4>
+        <h4 className="modal-title">Stocks</h4>
+        <h4 className="modal-title">Currencies</h4>
+        <h4 className="modal-title">Cryptocurrencies</h4>
       </div>
       <div className="modal-search-field">
         <input
@@ -70,8 +64,9 @@ const SearchFunction = () => {
       {searchResults.map((elem, index) => (
         <SearchResult
           key={index}
-          name={elem.description}
-          symbol={elem.symbol}
+          name={elem["2. name"]}
+          symbol={elem["1. symbol"]}
+          onAddChart={props.onAddChart}
         />
       ))}
     </>

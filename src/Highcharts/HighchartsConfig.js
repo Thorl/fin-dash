@@ -1,12 +1,9 @@
-const dummyData = [];
-
-for (let i = 0; i <= 366; i++) {
-  dummyData.push(i);
-}
-
-const highchartOptions = {
-  title: {
-    text: "Dummy Chart",
+const HighchartsConfig = {
+  plotOptions: {
+    candlestick: {
+      color: "red",
+      upColor: "green",
+    },
   },
   chart: {
     marginLeft: 7,
@@ -18,16 +15,6 @@ const highchartOptions = {
   },
   rangeSelector: {
     buttons: [
-      {
-        type: "year",
-        count: 1,
-        text: "1d",
-        title: "View 1 day",
-        dataGrouping: {
-          forced: true,
-          units: [["day", [1]]],
-        },
-      },
       {
         type: "week",
         count: 1,
@@ -80,14 +67,6 @@ const highchartOptions = {
       },
     ],
   },
-  series: [
-    {
-      name: "Dummy Corp",
-      pointStart: Date.UTC(2020, 0, 1),
-      pointInterval: 24 * 3600 * 1000,
-      data: dummyData,
-    },
-  ],
 };
 
-export default highchartOptions;
+export default HighchartsConfig;

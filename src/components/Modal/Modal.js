@@ -10,7 +10,7 @@ const ModalOverlay = (props) => {
   return (
     <div className={`modal ${props.show ? "show" : ""}`} onClick={closeModal}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <SearchFunction />
+        <SearchFunction onAddChart={props.onAddChart} />
         <div className="modal-footer">
           <button className="button" onClick={closeModal}>
             Close

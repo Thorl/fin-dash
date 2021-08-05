@@ -1,16 +1,14 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Header from "./components/Header/Header";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Modal from "./components/Modal/Modal";
 
 function App() {
-  // Toggle modal
   const [show, setShow] = useState(false);
 
-  // Set state for selected graphs
-  const defaultChart = [{ title: "NASDAQ" }];
+  const [charts, setCharts] = useState([]);
 
-  const [charts, setCharts] = useState(defaultChart);
+  console.log(charts);
 
   const addChartHandler = (newChart) => {
     setCharts((previousCharts) => {
@@ -21,7 +19,7 @@ function App() {
   return (
     <>
       <Header toggleModal={setShow} />
-      <Dashboard selectedCharts={charts} />
+      <Dashboard selectedCharts={charts && charts} />
       <Modal show={show} onClose={setShow} onAddChart={addChartHandler} />
     </>
   );
