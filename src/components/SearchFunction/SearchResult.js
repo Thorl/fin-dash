@@ -1,12 +1,18 @@
 import { getStockCandles } from "../../AlphaVantage/AlphaVantage";
+import { v4 as uuid } from "uuid";
+import { useCallback } from "react";
 import "./SearchResult.css";
 
 const SearchResult = (props) => {
-  const fetchStockCandles = async () => {
+  const fetchStockCandles = useCallback(async () => {
     const data = await getStockCandles(props.symbol);
     console.log(data);
-    return props.onAddChart({ name: props.name, stockCandleData: data });
-  };
+    return props.onAddChart({
+      id: uuid(),
+      name: props.name,
+      stockCandleData: data,
+    });
+  }, [props]);
 
   return (
     <div class="search-result">

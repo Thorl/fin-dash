@@ -4,6 +4,10 @@ import HighchartsConfig from "../../Highcharts/HighchartsConfig";
 import "./DashboardItem.css";
 
 const DashboardItem = (props) => {
+  const removeHandler = () => {
+    props.onRemoveChart(props.id);
+  };
+
   const options = {
     title: {
       text: props.name,
@@ -22,6 +26,7 @@ const DashboardItem = (props) => {
 
   return (
     <div class="dashboard-item">
+      <button type="button" className="close" onClick={removeHandler}></button>
       <HighchartsReact
         highcharts={Highcharts}
         constructorType={"stockChart"}

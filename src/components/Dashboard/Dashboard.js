@@ -7,8 +7,10 @@ const Dashboard = (props) => {
       {props.selectedCharts.map((item, index) => (
         <DashboardItem
           key={index}
+          id={item.id}
           name={item.name}
           data={item.stockCandleData}
+          onRemoveChart={props.onRemoveChart}
         />
       ))}
     </div>

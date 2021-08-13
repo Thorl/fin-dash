@@ -61,6 +61,10 @@
   border-bottom: 0.1rem solid #eee;
 }
 
+button {
+  cursor: pointer;
+}
+
 .modal-search-field {
   margin: 0 0.5rem 0 0.5rem;
 }

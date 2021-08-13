@@ -10,8 +10,6 @@ const getStockSymbols = async (searchQuery) => {
     }
     const data = await response.json();
 
-    console.log(data);
-
     const loadedStocks = [...data.bestMatches];
 
     return loadedStocks;
@@ -38,10 +36,10 @@ const getStockCandles = async (stockSymbol) => {
         const formatDate = key.split("-");
         return [
           Date.UTC(formatDate[0], formatDate[1] - 1, formatDate[2]),
-          parseInt(timeseriesData[key]["1. open"]),
-          parseInt(timeseriesData[key]["2. high"]),
-          parseInt(timeseriesData[key]["3. low"]),
-          parseInt(timeseriesData[key]["4. close"]),
+          +timeseriesData[key]["1. open"],
+          +timeseriesData[key]["2. high"],
+          +timeseriesData[key]["3. low"],
+          +timeseriesData[key]["4. close"],
         ];
       });
     return reformattedData;

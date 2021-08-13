@@ -11,7 +11,7 @@ const HighchartsConfig = {
     borderWidth: 1,
     borderColor: "#0a8e26",
     height: 500,
-    width: 599,
+    width: 699,
   },
   rangeSelector: {
     buttons: [

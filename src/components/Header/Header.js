@@ -4,24 +4,11 @@ const Header = (props) => {
   const toggleModalHandler = () => {
     props.toggleModal(true);
   };
-
+  // Fix styling of header
   return (
     <header>
-      <div id="page-nav">
-        <h2>
-          <a class="link">Home</a>
-        </h2>
-        <h2>
-          <a class="link">About</a>
-        </h2>
-        <h2>
-          <a class="link">Contact</a>
-        </h2>
-      </div>
       <h1>FinDash</h1>
-      <button class="header-item" onClick={toggleModalHandler}>
-        Add chart
-      </button>
+      <button onClick={toggleModalHandler}>Add chart</button>
     </header>
   );
 };
