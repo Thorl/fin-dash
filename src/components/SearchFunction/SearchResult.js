@@ -1,26 +1,46 @@
-import { getStockCandles } from "../../AlphaVantage/AlphaVantage";
+import {
+  fetchStockData,
+  fetchCurrencyData,
+} from "../../AlphaVantage/AlphaVantage";
 import { v4 as uuid } from "uuid";
 import { useCallback } from "react";
 import "./SearchResult.css";
 
 const SearchResult = (props) => {
-  const fetchStockCandles = useCallback(async () => {
-    const data = await getStockCandles(props.symbol);
-    console.log(data);
-    return props.onAddChart({
-      id: uuid(),
-      name: props.name,
-      stockCandleData: data,
-    });
+  const loadData = useCallback(() => {
+    switch (props.searchType) {
+      case "Stocks":
+        (async () => {
+          const data = await fetchStockData(props.symbol);
+          return props.onAddChart({
+            id: uuid(),
+            name: props.name,
+            data: data,
+          });
+        })();
+        break;
+      case "Currencies":
+        (async () => {
+          const data = await fetchCurrencyData(props.symbol);
+          return props.onAddChart({
+            id: uuid(),
+            name: props.name,
+            data: data,
+          });
+        })();
+        break;
+      default:
+        throw new Error("Something went wrong!");
+    }
   }, [props]);
 
   return (
-    <div class="search-result">
+    <div className="search-result">
       <div>
         <h3>{props.name}</h3>
         <h5>{props.symbol}</h5>
       </div>
-      <button onClick={fetchStockCandles}>Select</button>
+      <button onClick={loadData}>Select</button>
     </div>
   );
 };

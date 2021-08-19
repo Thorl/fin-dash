@@ -1,0 +1,30 @@
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.modal-title {
+  margin: 0;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.modal-title:hover {
+  color: #0a8e27d5;
+}
+
+.active {
+  color: #0a8e27d5;
+}
+
+.modal-search-field {
+  margin: 0 0.5rem 0 0.5rem;
+}
+
+.modal-search-field input {
+  width: 100%;
+  padding: 0.2rem;
+  margin-bottom: 0.5rem;
+}

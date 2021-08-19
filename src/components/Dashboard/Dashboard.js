@@ -3,13 +3,13 @@ import DashboardItem from "./DashboardItem";
 
 const Dashboard = (props) => {
   return (
-    <div id="dashboard-grid">
+    <div className="dashboard-grid">
       {props.selectedCharts.map((item, index) => (
         <DashboardItem
           key={index}
           id={item.id}
           name={item.name}
-          data={item.stockCandleData}
+          data={item.data}
           onRemoveChart={props.onRemoveChart}
         />
       ))}
