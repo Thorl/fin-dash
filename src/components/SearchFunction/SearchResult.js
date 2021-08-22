@@ -1,7 +1,6 @@
-import {
-  fetchStockData,
-  fetchCurrencyData,
-} from "../../AlphaVantage/AlphaVantage";
+import { fetchCurrencyData } from "../../AlphaVantage/CurrencyDataHandlers";
+import { fetchStockData } from "../../AlphaVantage/StockDataHandlers";
+import { fetchCryptoData } from "../../AlphaVantage/CryptoDataHandlers";
 import { v4 as uuid } from "uuid";
 import { useCallback } from "react";
 import "./SearchResult.css";
@@ -22,6 +21,16 @@ const SearchResult = (props) => {
       case "Currencies":
         (async () => {
           const data = await fetchCurrencyData(props.symbol);
+          return props.onAddChart({
+            id: uuid(),
+            name: props.name,
+            data: data,
+          });
+        })();
+        break;
+      case "Cryptocurrencies":
+        (async () => {
+          const data = await fetchCryptoData(props.symbol);
           return props.onAddChart({
             id: uuid(),
             name: props.name,
