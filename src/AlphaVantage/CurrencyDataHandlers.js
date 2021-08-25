@@ -1,73 +1,12 @@
 import apiKey from "./AlphaVantageKey";
-import physicalCurrencyList from "./PhysicalCurrencyList";
+import { physicalCurrencyList } from "./PhysicalCurrencyList";
 
-const fetchCurrencySymbols = (currencyPair) => {
-  const firstCurrencySymbol = currencyPair.match(/^[a-z]{3}/i);
-
-  const secondCurrencySymbol = currencyPair.match(
-    /^([a-z]{3}\/?)([a-z]{1,3})$/i
-  );
-
-  if (
-    firstCurrencySymbol &&
-    physicalCurrencyList.some(
-      (el) =>
-        el.symbol.toLowerCase().indexOf(firstCurrencySymbol[0].toLowerCase()) >
-        -1
-    ) &&
-    !secondCurrencySymbol
-  ) {
-    const firstCurrencyName = physicalCurrencyList.filter(
-      (currency) =>
-        currency.symbol.toLowerCase() === firstCurrencySymbol[0].toLowerCase()
-    );
-    return physicalCurrencyList
-      .filter(
-        (currency) =>
-          currency.symbol.toLowerCase() !== firstCurrencySymbol[0].toLowerCase()
-      )
-      .map((currency) => {
-        return {
-          symbol: `${firstCurrencySymbol[0].toUpperCase()}/${currency.symbol}`,
-          name: `${firstCurrencyName[0].name}/${currency.name}`,
-        };
-      });
-  } else if (
-    firstCurrencySymbol &&
-    secondCurrencySymbol &&
-    physicalCurrencyList.some(
-      (currency) =>
-        currency.symbol
-          .toLowerCase()
-          .indexOf(secondCurrencySymbol[2].toLowerCase()) > -1
-    )
-  ) {
-    const firstCurrencyName = physicalCurrencyList.filter(
-      (currency) =>
-        currency.symbol.toLowerCase() === firstCurrencySymbol[0].toLowerCase()
-    );
-    return physicalCurrencyList
-      .filter(
-        (currency) =>
-          currency.symbol.toLowerCase() !== firstCurrencySymbol[0].toLowerCase()
-      )
-      .map((currency) => {
-        return {
-          symbol: `${firstCurrencySymbol[0].toUpperCase()}/${currency.symbol}`,
-          name: `${firstCurrencyName[0].name}/${currency.name}`,
-        };
-      })
-      .filter((currency) => {
-        return (
-          currency.symbol
-            .match(/([a-z]{3})$/i)[0]
-            .toLowerCase()
-            .indexOf(secondCurrencySymbol[2].toLowerCase()) > -1
-        );
-      });
-  } else {
-    return [];
-  }
+const fetchCurrencySymbols = (searchQuery) => {
+  return physicalCurrencyList.filter((currency) => {
+    return currency.searchParams.some((param) => {
+      return param.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1;
+    });
+  });
 };
 
 const fetchCurrencyData = async (currencyPair) => {

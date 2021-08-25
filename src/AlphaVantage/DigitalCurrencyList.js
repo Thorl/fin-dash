@@ -1,4 +1,6 @@
-const digitalCurrencyList = [
+import { physicalCurrencies } from "./PhysicalCurrencyList";
+
+const digitalCurrencies = [
   { name: "FirstBlood", symbol: "1ST" },
   { name: "GiveCoin", symbol: "2GIVE" },
   { name: "808Coin", symbol: "808" },
@@ -570,4 +572,20 @@ const digitalCurrencyList = [
   { name: "0x", symbol: "ZRX" },
 ];
 
+const digitalCurrencyList = [];
+
+for (let i = 0; i < digitalCurrencies.length; i++) {
+  for (let j = 0; j < physicalCurrencies.length; j++) {
+    digitalCurrencyList.push({
+      name: `${digitalCurrencies[i].name}/${physicalCurrencies[j].name}`,
+      symbol: `${digitalCurrencies[i].symbol}/${physicalCurrencies[j].symbol}`,
+      searchParams: [
+        `${digitalCurrencies[i].name}/${physicalCurrencies[j].name}`,
+        digitalCurrencies[i].symbol + physicalCurrencies[j].symbol,
+        `${digitalCurrencies[i].symbol}/${physicalCurrencies[j].symbol}`,
+      ],
+    });
+  }
+}
+console.log(digitalCurrencyList);
 export default digitalCurrencyList;
