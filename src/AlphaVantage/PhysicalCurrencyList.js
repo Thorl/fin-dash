@@ -1,4 +1,4 @@
-const physicalCurrencyList = [
+const physicalCurrencies = [
   { name: "United Arab Emirates Dirham", symbol: "AED" },
   { name: "Afghan Afghani", symbol: "AFN" },
   { name: "Albanian Lek", symbol: "ALL" },
@@ -160,4 +160,22 @@ const physicalCurrencyList = [
   { name: "Zimbabwean Dollar", symbol: "ZWL" },
 ];
 
-export default physicalCurrencyList;
+const physicalCurrencyList = [];
+
+for (let i = 0; i < physicalCurrencies.length; i++) {
+  for (let j = 0; j < physicalCurrencies.length; j++) {
+    if (physicalCurrencies[i].name !== physicalCurrencies[j].name) {
+      physicalCurrencyList.push({
+        name: `${physicalCurrencies[i].name}/${physicalCurrencies[j].name}`,
+        symbol: `${physicalCurrencies[i].symbol}/${physicalCurrencies[j].symbol}`,
+        searchParams: [
+          `${physicalCurrencies[i].name}/${physicalCurrencies[j].name}`,
+          physicalCurrencies[i].symbol + physicalCurrencies[j].symbol,
+          `${physicalCurrencies[i].symbol}/${physicalCurrencies[j].symbol}`,
+        ],
+      });
+    }
+  }
+}
+
+export { physicalCurrencyList, physicalCurrencies };

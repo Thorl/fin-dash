@@ -63,7 +63,6 @@ const SearchFunction = (props) => {
           break;
         case "Currencies":
           if (currentQuery) {
-            console.log(placeholderText);
             const currencies = loadCurrencySymbols(searchQuery, controller);
             setSearchResults(currencies);
             setIsLoading(false);
@@ -119,9 +118,7 @@ const SearchFunction = (props) => {
           }`}
           onClick={() => {
             changeSearchType("Cryptocurrencies");
-            setPlaceholderText(
-              "'btc/eur' or 'eth/usd' (must include forward slash)"
-            );
+            setPlaceholderText("'btc/eur' or 'Ethereum/United States Dollar'");
           }}
         >
           Cryptocurrencies
