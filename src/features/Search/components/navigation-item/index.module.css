@@ -1,0 +1,14 @@
+.navigationItem {
+    margin: 0;
+    color: #000;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+.navigationItem:hover {
+    color: #0a8e27d5;
+}
+
+.active {
+    color: #0a8e27d5;
+}

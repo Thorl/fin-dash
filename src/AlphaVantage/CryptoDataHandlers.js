@@ -1,7 +1,7 @@
 import apiKey from "./AlphaVantageKey";
 import digitalCurrencyList from "./DigitalCurrencyList";
 
-const fetchCryptoSymbols = (searchQuery) => {
+export const fetchCryptoSymbols = (searchQuery) => {
   return digitalCurrencyList.filter((currency) => {
     return currency.searchParams.some((param) => {
       return param.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1;
@@ -9,7 +9,7 @@ const fetchCryptoSymbols = (searchQuery) => {
   });
 };
 
-const fetchCryptoData = async (currencyPair) => {
+export const fetchCryptoData = async (currencyPair) => {
   const regexMatch = currencyPair.match(
     /^(?<fromCurrency>[a-z]{3,9})\/(?<toCurrency>[a-z]{3})$/i
   );
@@ -45,5 +45,3 @@ const fetchCryptoData = async (currencyPair) => {
     console.log(error.message);
   }
 };
-
-export { fetchCryptoSymbols, fetchCryptoData };

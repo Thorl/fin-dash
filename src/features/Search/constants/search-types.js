@@ -1,0 +1,3 @@
+export const STOCKS = 'STOCKS';
+export const CURRENCIES = 'CURRENCIES';
+export const CRYPTOCURRENCIES = 'CRYPTOCURRENCIES';

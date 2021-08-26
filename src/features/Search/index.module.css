@@ -1,0 +1,34 @@
+.loading {
+  text-align: center;
+  animation-name: pulse;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.modalSearchField {
+  margin: 0 0.5rem 0 0.5rem;
+}
+
+.modalSearchField_input {
+  width: 100%;
+  padding: 0.2rem;
+  margin-bottom: 0.5rem;
+}
