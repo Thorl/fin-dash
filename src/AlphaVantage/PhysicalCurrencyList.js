@@ -168,6 +168,7 @@ for (let i = 0; i < physicalCurrencies.length; i++) {
       physicalCurrencyList.push({
         name: `${physicalCurrencies[i].name}/${physicalCurrencies[j].name}`,
         symbol: `${physicalCurrencies[i].symbol}/${physicalCurrencies[j].symbol}`,
+        type: "Currency",
         searchParams: [
           `${physicalCurrencies[i].name}/${physicalCurrencies[j].name}`,
           physicalCurrencies[i].symbol + physicalCurrencies[j].symbol,

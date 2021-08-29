@@ -10,13 +10,17 @@ const fetchStockSymbols = async (searchQuery) => {
     }
     const data = await response.json();
 
-    const loadedStocks = [...data.bestMatches]
+    const stocksList = [...data.bestMatches]
       .filter((stock) => stock["3. type"] === "Equity")
       .map((stock) => {
-        return { symbol: stock["1. symbol"], name: stock["2. name"] };
+        return {
+          symbol: stock["1. symbol"],
+          name: stock["2. name"],
+          type: "Equity",
+        };
       });
 
-    return loadedStocks;
+    return stocksList;
   } catch (error) {
     console.log(error.message);
   }
