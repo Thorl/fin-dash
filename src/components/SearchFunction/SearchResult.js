@@ -7,8 +7,8 @@ import "./SearchResult.css";
 
 const SearchResult = (props) => {
   const loadData = useCallback(() => {
-    switch (props.searchType) {
-      case "Stocks":
+    switch (props.type) {
+      case "Equity":
         (async () => {
           const data = await fetchStockData(props.symbol);
           return props.onAddChart({
@@ -18,7 +18,7 @@ const SearchResult = (props) => {
           });
         })();
         break;
-      case "Currencies":
+      case "Currency":
         (async () => {
           const data = await fetchCurrencyData(props.symbol);
           return props.onAddChart({
@@ -28,7 +28,7 @@ const SearchResult = (props) => {
           });
         })();
         break;
-      case "Cryptocurrencies":
+      case "Crypto":
         (async () => {
           const data = await fetchCryptoData(props.symbol);
           return props.onAddChart({
