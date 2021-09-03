@@ -17,7 +17,8 @@ const fetchSymbolHandler = async (searchQuery) => {
 
   const mergedSearchResults = searchResults
     .filter((obj) => obj.length > 0)
-    .flat();
+    .flat()
+    .filter((obj, index) => index < 999);
 
   return mergedSearchResults;
 };

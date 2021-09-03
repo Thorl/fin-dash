@@ -26,7 +26,7 @@ const DashboardItem = (props) => {
 
   return (
     <div className="dashboard-item">
-      <button type="button" className="close" onClick={removeHandler}></button>
+      <button className="close" onClick={removeHandler}></button>
       <HighchartsReact
         highcharts={Highcharts}
         constructorType={"stockChart"}

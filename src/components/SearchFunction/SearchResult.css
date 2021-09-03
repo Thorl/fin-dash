@@ -1,13 +1,55 @@
+.searchResultsWrapper {
+  display: contents;
+}
 .search-result {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 1rem;
   border-bottom: 0.1rem solid #eee;
-  padding: 1rem 2rem 1rem 1rem;
-  color: #0a8e27de;
-  overflow: hidden;
+  z-index: 0;
+}
+
+.search-result.btn {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
 }
 
 .search-result button {
   cursor: pointer;
+}
+
+.addButton {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  border: none;
+  background-color: #ffff;
+  width: 21px;
+  height: 21px;
+  z-index: 0;
+}
+
+.addButton::after,
+.addButton::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background: #0a8e26;
+  top: 10px;
+  left: 0px;
+  z-index: 0;
+}
+
+.addButton::after {
+  width: 2px;
+  height: 20px;
+  top: 1px;
+  left: 9px;
+  z-index: 0;
+}
+
+.addButton:active {
+  transform: translateY(2px);
 }

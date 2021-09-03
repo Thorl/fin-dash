@@ -10,12 +10,14 @@ const ModalOverlay = (props) => {
   return (
     <div className={`modal ${props.show ? "show" : ""}`} onClick={closeModal}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <SearchFunction onAddChart={props.onAddChart} />
-        <div className="modal-footer">
-          <button className="button" onClick={closeModal}>
-            Close
-          </button>
+        <div className="modal-header">
+          <h2 className="modal-title">Add chart</h2>
+          <button className="closeModal" onClick={props.onCloseModal}></button>
         </div>
+        <SearchFunction
+          onAddChart={props.onAddChart}
+          onCloseModal={closeModal}
+        />
       </div>
     </div>
   );

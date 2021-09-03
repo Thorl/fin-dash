@@ -31,30 +31,71 @@
   transition: all 0.3s ease-in-out;
   overflow-y: auto;
   position: relative;
+  border: 0.15rem solid #0a8e26;
 }
 
 .modal.show .modal-content {
   transform: translateY(0);
 }
 
-.modal-body {
-  height: 31rem;
-  padding: 1rem;
-  border-top: 0.1rem solid #eee;
-  border-bottom: 0.1rem solid #eee;
-}
-
-button {
-  cursor: pointer;
-}
-
-.modal-footer {
+.modal-header {
+  position: sticky;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  align-content: center;
+  padding: 0.5rem;
+  top: 0px;
+  background-color: white;
+  z-index: 10;
 }
 
-.modal-header,
-.modal-footer {
-  padding: 1rem;
+.modal-title {
+  margin: 0;
+  font-size: 20px;
+  color: #131722;
+  z-index: 10;
+}
+
+.closeModal {
+  color: #eeee;
+  border: none;
+  background-color: #fff;
+  top: 11px;
+  left: 760px;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.closeModal::before {
+  content: " ";
+  position: relative;
+  display: block;
+  background-color: #bbbb;
+  width: 2px;
+  height: 25px;
+  left: 1px;
+  top: 1px;
+  transform: rotate(45deg);
+  transition: all 0.5s ease-in-out;
+  z-index: 10;
+}
+.closeModal::after {
+  content: " ";
+  position: relative;
+  display: block;
+  background-color: #bbbb;
+  width: 25px;
+  height: 2px;
+  top: -12px;
+  left: -10px;
+  transform: rotate(45deg);
+  transition: all 0.5s ease-in-out;
+  z-index: 10;
+}
+
+.closeModal:hover:before,
+.closeModal:hover:after {
+  background-color: #0a8e26;
 }

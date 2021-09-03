@@ -52,9 +52,6 @@ const SearchFunction = (props) => {
 
   return (
     <>
-      <div className="modal-header">
-        <h4>Search</h4>
-      </div>
       <div className="modal-search-field">
         <input
           type="text"
@@ -63,6 +60,26 @@ const SearchFunction = (props) => {
           onChange={(event) => setSearchQuery(event.target.value)}
           ref={focusSearch}
         ></input>
+      </div>
+      <div className="searchResultsGrid">
+        <div className="searchResultsHeader">
+          <div className="headerText">Type</div>
+        </div>
+        <div className="searchResultsHeader">
+          <div className="headerText">Symbol</div>
+        </div>
+        <div className="searchResultsHeader">
+          <div className="headerText">Name</div>
+        </div>
+        {searchResults.map((elem, index) => (
+          <SearchResult
+            key={index}
+            symbol={elem.symbol}
+            name={elem.name}
+            type={elem.type}
+            onAddChart={props.onAddChart}
+          />
+        ))}
       </div>
       {isLoading && <p>Loading...</p>}
       {searchResults.map((elem, index) => (
@@ -74,6 +91,7 @@ const SearchFunction = (props) => {
           onAddChart={props.onAddChart}
         />
       ))}
+
     </>
   );
 };

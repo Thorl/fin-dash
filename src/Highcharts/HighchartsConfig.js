@@ -59,11 +59,19 @@ const HighchartsConfig = {
         type: "ytd",
         text: "YTD",
         title: "View year to date",
+        dataGrouping: {
+          forced: true,
+          units: [["day", [1]]],
+        },
       },
       {
         type: "all",
         text: "All",
         title: "View all",
+        dataGrouping: {
+          forced: true,
+          units: [["month", [3]]],
+        },
       },
     ],
   },
