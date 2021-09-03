@@ -19,8 +19,8 @@
   background-color: #fff;
   top: -248px;
   left: 705px;
-  height: 20px;
-  width: 20px;
+  height: 22px;
+  width: 22px;
   border-radius: 50%;
   z-index: 10;
   cursor: pointer;
@@ -32,10 +32,11 @@
   display: block;
   background-color: #222;
   width: 2px;
-  left: 8px;
-  top: 3px;
-  bottom: 3px;
+  left: 9px;
+  top: 4px;
+  bottom: 4px;
   transform: rotate(45deg);
+  transition: all 0.5s ease-in-out;
 }
 .close::after {
   content: " ";
@@ -43,12 +44,14 @@
   display: block;
   background-color: #222;
   height: 2px;
-  top: 8px;
-  left: 3px;
-  right: 3px;
+  top: 9px;
+  left: 4px;
+  right: 4px;
   transform: rotate(45deg);
+  transition: all 0.5s ease-in-out;
 }
 
-.chart-style {
-  z-index: 0;
+.close:hover:before,
+.close:hover:after {
+  background-color: #0a8e26;
 }

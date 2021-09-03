@@ -7,8 +7,8 @@ import "./SearchResult.css";
 
 const SearchResult = (props) => {
   const loadData = useCallback(() => {
-    switch (props.searchType) {
-      case "Stocks":
+    switch (props.type) {
+      case "Equity":
         (async () => {
           const data = await fetchStockData(props.symbol);
           return props.onAddChart({
@@ -18,7 +18,7 @@ const SearchResult = (props) => {
           });
         })();
         break;
-      case "Currencies":
+      case "Currency":
         (async () => {
           const data = await fetchCurrencyData(props.symbol);
           return props.onAddChart({
@@ -28,7 +28,7 @@ const SearchResult = (props) => {
           });
         })();
         break;
-      case "Cryptocurrencies":
+      case "Crypto":
         (async () => {
           const data = await fetchCryptoData(props.symbol);
           return props.onAddChart({
@@ -42,14 +42,20 @@ const SearchResult = (props) => {
         throw new Error("Something went wrong!");
     }
   }, [props]);
-
   return (
-    <div className="search-result">
-      <div>
-        <h3>{props.name}</h3>
-        <h5>{props.symbol}</h5>
+    <div className="searchResultsWrapper">
+      <div className="search-result">
+        <div>{props.type}</div>
       </div>
-      <button onClick={loadData}>Select</button>
+      <div className="search-result">
+        <div>{props.symbol}</div>
+      </div>
+      <div className="search-result">
+        <div>{props.name}</div>
+      </div>
+      <div className="search-result btn">
+        <button className="addButton" onClick={loadData}></button>
+      </div>
     </div>
   );
 };
