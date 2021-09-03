@@ -55,7 +55,7 @@ const SearchFunction = (props) => {
       <div className="modal-search-field">
         <input
           type="text"
-          placeholder="Enter your search for a stock ticker, company name, currency pair, or crypto/fiat currency pair."
+          placeholder="Enter your search for a stock ticker or company name, currency pair, or crypto/fiat currency pair."
           value={searchQuery}
           onChange={(event) => setSearchQuery(event.target.value)}
           ref={focusSearch}
@@ -82,6 +82,16 @@ const SearchFunction = (props) => {
         ))}
       </div>
       {isLoading && <p>Loading...</p>}
+      {searchResults.map((elem, index) => (
+        <SearchResult
+          key={index}
+          symbol={elem.symbol}
+          name={elem.name}
+          type={elem.type}
+          onAddChart={props.onAddChart}
+        />
+      ))}
+
     </>
   );
 };
