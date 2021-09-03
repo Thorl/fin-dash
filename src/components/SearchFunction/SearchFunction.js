@@ -71,6 +71,7 @@ const SearchFunction = (props) => {
         <div className="searchResultsHeader">
           <div className="headerText">Name</div>
         </div>
+        {isLoading && <p>Loading...</p>}
         {searchResults.map((elem, index) => (
           <SearchResult
             key={index}
@@ -81,17 +82,6 @@ const SearchFunction = (props) => {
           />
         ))}
       </div>
-      {isLoading && <p>Loading...</p>}
-      {searchResults.map((elem, index) => (
-        <SearchResult
-          key={index}
-          symbol={elem.symbol}
-          name={elem.name}
-          type={elem.type}
-          onAddChart={props.onAddChart}
-        />
-      ))}
-
     </>
   );
 };
