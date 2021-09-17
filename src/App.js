@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Header from "./components/Header/Header";
-import Dashboard from "./components/Dashboard/Dashboard";
-import Modal from "./components/Modal/Modal";
+import Header from "./features/ui/Header/Header";
+import Dashboard from "./features/ui/Dashboard/Dashboard";
+import Modal from "./features/ui/Modal/Modal";
 
 function App() {
   const [show, setShow] = useState(false);

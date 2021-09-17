@@ -1,11 +1,11 @@
 import "./Dashboard.css";
-import DashboardItem from "./DashboardItem";
+import Chart from "../../Chart/Chart";
 
 const Dashboard = (props) => {
   return (
     <div className="dashboard-grid">
       {props.selectedCharts.map((item, index) => (
-        <DashboardItem
+        <Chart
           key={index}
           id={item.id}
           name={item.name}

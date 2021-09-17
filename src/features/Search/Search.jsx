@@ -1,9 +1,9 @@
-import SearchResult from "./SearchResult";
-import "./SearchFunction.css";
-import fetchSymbolHandler from "../../AlphaVantage/FetchSymbolHandler";
+import Result from "./components/Result/Result";
+import "./Search.css";
+import fetchSymbolHandler from "./api/alpha-vantage/fetch-symbol-handler";
 import { useRef, useEffect, useState } from "react";
 
-const SearchFunction = (props) => {
+const Search = (props) => {
   const [searchResults, setSearchResults] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -73,7 +73,7 @@ const SearchFunction = (props) => {
         </div>
         {isLoading && <p>Loading...</p>}
         {searchResults.map((elem, index) => (
-          <SearchResult
+          <Result
             key={index}
             symbol={elem.symbol}
             name={elem.name}
@@ -86,4 +86,4 @@ const SearchFunction = (props) => {
   );
 };
 
-export default SearchFunction;
+export default Search;
