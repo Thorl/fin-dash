@@ -1,5 +1,5 @@
-import apiKey from "./AlphaVantageKey";
-import { physicalCurrencyList } from "./PhysicalCurrencyList";
+import apiKey from "./alpha-vantage-key";
+import { physicalCurrencyList } from "./currency-lists/physical-currency-list";
 
 const fetchCurrencySymbols = (searchQuery) => {
   return physicalCurrencyList.filter((currency) => {

@@ -1,11 +1,11 @@
-import { fetchCurrencyData } from "../../AlphaVantage/CurrencyDataHandlers";
-import { fetchStockData } from "../../AlphaVantage/StockDataHandlers";
-import { fetchCryptoData } from "../../AlphaVantage/CryptoDataHandlers";
+import { fetchCurrencyData } from "../../api/alpha-vantage/currency-data-handlers";
+import { fetchStockData } from "../../api/alpha-vantage/stock-data-handlers";
+import { fetchCryptoData } from "../../api/alpha-vantage/crypto-data-handlers";
 import { v4 as uuid } from "uuid";
 import { useCallback } from "react";
-import "./SearchResult.css";
+import "./Result.css";
 
-const SearchResult = (props) => {
+const Result = (props) => {
   const loadData = useCallback(() => {
     switch (props.type) {
       case "Equity":
@@ -60,4 +60,4 @@ const SearchResult = (props) => {
   );
 };
 
-export default SearchResult;
+export default Result;

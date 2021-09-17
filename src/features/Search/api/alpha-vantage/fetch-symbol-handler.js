@@ -1,6 +1,6 @@
-import { fetchStockSymbols } from "./StockDataHandlers";
-import { fetchCurrencySymbols } from "./CurrencyDataHandlers";
-import { fetchCryptoSymbols } from "./CryptoDataHandlers";
+import { fetchStockSymbols } from "./stock-data-handlers";
+import { fetchCurrencySymbols } from "./currency-data-handlers";
+import { fetchCryptoSymbols } from "./crypto-data-handlers";
 
 const fetchSymbolHandler = async (searchQuery) => {
   const searchResults = [];

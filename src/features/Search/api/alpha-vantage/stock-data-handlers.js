@@ -1,4 +1,4 @@
-import apiKey from "./AlphaVantageKey";
+import apiKey from "./alpha-vantage-key";
 
 const fetchStockSymbols = async (searchQuery) => {
   try {

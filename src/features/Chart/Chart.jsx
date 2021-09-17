@@ -1,9 +1,9 @@
 import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
-import HighchartsConfig from "../../Highcharts/HighchartsConfig";
-import "./DashboardItem.css";
+import highchartsConfig from "./highcharts/highcharts-config";
+import "./Chart.css";
 
-const DashboardItem = (props) => {
+const Chart = (props) => {
   const removeHandler = () => {
     props.onRemoveChart(props.id);
   };
@@ -19,9 +19,9 @@ const DashboardItem = (props) => {
         data: props.data,
       },
     ],
-    chart: HighchartsConfig.chart,
-    rangeSelector: HighchartsConfig.rangeSelector,
-    plotOptions: HighchartsConfig.plotOptions,
+    chart: highchartsConfig.chart,
+    rangeSelector: highchartsConfig.rangeSelector,
+    plotOptions: highchartsConfig.plotOptions,
   };
 
   return (
@@ -36,4 +36,4 @@ const DashboardItem = (props) => {
   );
 };
 
-export default DashboardItem;
+export default Chart;

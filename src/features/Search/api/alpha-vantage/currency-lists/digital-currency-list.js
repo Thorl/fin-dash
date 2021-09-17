@@ -1,4 +1,4 @@
-import { physicalCurrencies } from "./PhysicalCurrencyList";
+import { physicalCurrencies } from "./physical-currency-list";
 
 const digitalCurrencies = [
   { name: "FirstBlood", symbol: "1ST" },

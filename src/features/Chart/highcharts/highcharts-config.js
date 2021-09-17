@@ -1,4 +1,4 @@
-const HighchartsConfig = {
+const highchartsConfig = {
   plotOptions: {
     candlestick: {
       color: "red",
@@ -77,4 +77,4 @@ const HighchartsConfig = {
   },
 };
 
-export default HighchartsConfig;
+export default highchartsConfig;

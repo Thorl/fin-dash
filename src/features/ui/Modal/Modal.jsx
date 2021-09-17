@@ -1,6 +1,6 @@
 import "./Modal.css";
 import ReactDOM from "react-dom";
-import SearchFunction from "../SearchFunction/SearchFunction";
+import Search from "../../Search/Search";
 
 const ModalOverlay = (props) => {
   const closeModal = () => {
@@ -14,10 +14,7 @@ const ModalOverlay = (props) => {
           <h2 className="modal-title">Add chart</h2>
           <button className="closeModal" onClick={closeModal}></button>
         </div>
-        <SearchFunction
-          onAddChart={props.onAddChart}
-          onCloseModal={closeModal}
-        />
+        <Search onAddChart={props.onAddChart} onCloseModal={closeModal} />
       </div>
     </div>
   );

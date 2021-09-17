@@ -1,5 +1,5 @@
-import apiKey from "./AlphaVantageKey";
-import digitalCurrencyList from "./DigitalCurrencyList";
+import apiKey from "./alpha-vantage-key";
+import digitalCurrencyList from "./currency-lists/digital-currency-list";
 
 const fetchCryptoSymbols = (searchQuery) => {
   return digitalCurrencyList.filter((currency) => {
