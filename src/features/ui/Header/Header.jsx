@@ -1,6 +1,6 @@
 import * as styles from "./Header.module.css";
 
-const Header = (props) => {
+export const Header = (props) => {
   const toggleModalHandler = () => {
     props.toggleModal(true);
   };
@@ -16,5 +16,3 @@ const Header = (props) => {
     </header>
   );
 };
-
-export default Header;

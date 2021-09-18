@@ -1,6 +1,6 @@
-import apiKey from "./alpha-vantage-key";
+import { apiKey } from "./alpha-vantage-key";
 
-const fetchStockSymbols = async (searchQuery) => {
+export const fetchStockSymbols = async (searchQuery) => {
   try {
     const response = await fetch(
       `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${searchQuery}&apikey=${apiKey}`
@@ -26,7 +26,7 @@ const fetchStockSymbols = async (searchQuery) => {
   }
 };
 
-const fetchStockData = async (stockSymbol) => {
+export const fetchStockData = async (stockSymbol) => {
   try {
     const response = await fetch(
       `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stockSymbol}&outputsize=full&apikey=${apiKey}`
@@ -55,5 +55,3 @@ const fetchStockData = async (stockSymbol) => {
     console.log(error.message);
   }
 };
-
-export { fetchStockSymbols, fetchStockData };

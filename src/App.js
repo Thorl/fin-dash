@@ -1,9 +1,10 @@
 import { useState } from "react";
-import Header from "./features/ui/Header/Header";
-import Dashboard from "./features/ui/Dashboard/Dashboard";
-import Modal from "./features/ui/Modal/Modal";
 
-function App() {
+import { Header } from "./features/ui/Header/Header";
+import { Dashboard } from "./features/ui/Dashboard/Dashboard";
+import { Modal } from "./features/ui/Modal/Modal";
+
+export function App() {
   const [show, setShow] = useState(false);
 
   const [charts, setCharts] = useState([]);
@@ -32,5 +33,3 @@ function App() {
     </>
   );
 }
-
-export default App;

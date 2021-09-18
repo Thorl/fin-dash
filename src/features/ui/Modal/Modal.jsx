@@ -1,7 +1,9 @@
-import * as styles from "./Modal.module.css";
 import ReactDOM from "react-dom";
+
 import classNames from "classnames";
-import Search from "../../Search/Search";
+
+import { Search } from "../../Search/Search";
+import * as styles from "./Modal.module.css";
 
 const ModalOverlay = (props) => {
   const closeModal = () => {
@@ -34,7 +36,7 @@ const ModalOverlay = (props) => {
   );
 };
 
-const Modal = (props) => {
+export const Modal = (props) => {
   return (
     <>
       {ReactDOM.createPortal(
@@ -48,5 +50,3 @@ const Modal = (props) => {
     </>
   );
 };
-
-export default Modal;
