@@ -3,7 +3,7 @@ import { fetchStockData } from "../../api/alpha-vantage/stock-data-handlers";
 import { fetchCryptoData } from "../../api/alpha-vantage/crypto-data-handlers";
 import { v4 as uuid } from "uuid";
 import { useCallback } from "react";
-import "./Result.css";
+import * as styles from "./Result.module.css";
 
 const Result = (props) => {
   const loadData = useCallback(() => {
@@ -43,18 +43,21 @@ const Result = (props) => {
     }
   }, [props]);
   return (
-    <div className="searchResultsWrapper">
-      <div className="search-result">
+    <div className={styles["SearchResultsWrapper"]}>
+      <div className={styles["SearchResult"]}>
         <div>{props.type}</div>
       </div>
-      <div className="search-result">
+      <div className={styles["SearchResult"]}>
         <div>{props.symbol}</div>
       </div>
-      <div className="search-result">
+      <div className={styles["SearchResult"]}>
         <div>{props.name}</div>
       </div>
-      <div className="search-result btn">
-        <button className="addButton" onClick={loadData}></button>
+      <div className={styles["SearchResult__Button"]}>
+        <button
+          className={styles["AddChartButton"]}
+          onClick={loadData}
+        ></button>
       </div>
     </div>
   );

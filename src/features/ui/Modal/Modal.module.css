@@ -1,0 +1,102 @@
+.Modal {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: all 0.3s ease-in-out;
+  width: 100vw;
+  z-index: 100;
+}
+
+.Modal--Show {
+  opacity: 1;
+  pointer-events: visible;
+  transform: translateY(0);
+}
+
+.ModalContent {
+  background-color: #fff;
+  border: 0.15rem solid #0a8e26;
+  height: 50rem;
+  max-height: calc(100vh - 2rem);
+  max-width: calc(100vw - 2rem);
+  overflow-y: auto;
+  position: relative;
+  transform: translateY(-200px);
+  transition: all 0.3s ease-in-out;
+  width: 50rem;
+}
+
+.ModalContent--Show {
+  transform: translateY(0);
+}
+
+.ModalHeader {
+  align-content: center;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0.5rem 0.7rem 0.5rem;
+  position: sticky;
+  top: 0px;
+  z-index: 10;
+}
+
+.ModalTitle {
+  color: #131722;
+  font-size: 20px;
+  margin: 0;
+  z-index: 10;
+}
+
+.CloseModalButton {
+  background-color: #fff;
+  border: none;
+  color: #eeee;
+  cursor: pointer;
+  left: 760px;
+  height: 20px;
+  top: 11px;
+  width: 20px;
+  z-index: 10;
+}
+
+.CloseModalButton::before {
+  content: " ";
+  background-color: #bbbb;
+  display: block;
+  height: 25px;
+  left: 1px;
+  position: relative;
+  top: 1px;
+  transform: rotate(45deg);
+  transition: all 0.5s ease-in-out;
+  width: 2px;
+  z-index: 10;
+}
+.CloseModalButton::after {
+  background-color: #bbbb;
+  content: " ";
+  display: block;
+  height: 2px;
+  left: -10px;
+  position: relative;
+  top: -12px;
+  transform: rotate(45deg);
+  transition: all 0.5s ease-in-out;
+  width: 25px;
+  z-index: 10;
+}
+
+.CloseModalButton:hover:before,
+.CloseModalButton:hover:after {
+  background-color: #0a8e26;
+}

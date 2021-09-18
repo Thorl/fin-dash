@@ -1,9 +1,9 @@
-import "./Dashboard.css";
+import * as styles from "./Dashboard.module.css";
 import Chart from "../../Chart/Chart";
 
 const Dashboard = (props) => {
   return (
-    <div className="dashboard-grid">
+    <div className={styles["DashboardGrid"]}>
       {props.selectedCharts.map((item, index) => (
         <Chart
           key={index}

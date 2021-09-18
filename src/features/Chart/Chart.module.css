@@ -1,57 +1,55 @@
-.dashboard-item {
-  display: flex;
-  justify-content: center;
+.Chart {
   align-items: center;
   background: inherit;
+  display: flex;
   font-size: 1.3rem;
   font-weight: bold;
   height: 500px;
+  justify-content: center;
   width: 730px;
 }
 
-/* Make dashboard-item div align properly behind Highchart chart. Add background and border to
-  dashboard-item to see how it looks. */
-
-.close {
-  color: #fff;
-  border: 1px solid #0a8e26;
-  position: relative;
+.CloseButton {
   background-color: #fff;
-  top: -248px;
-  left: 705px;
-  height: 22px;
-  width: 22px;
+  border: 1px solid #0a8e26;
   border-radius: 50%;
-  z-index: 10;
   cursor: pointer;
+  color: #fff;
+  height: 22px;
+  left: 705px;
+  position: relative;
+  top: -248px;
+  width: 22px;
+  z-index: 10;
 }
 
-.close::before {
-  content: " ";
-  position: absolute;
-  display: block;
+.CloseButton::before {
   background-color: #222;
-  width: 2px;
-  left: 9px;
-  top: 4px;
   bottom: 4px;
-  transform: rotate(45deg);
-  transition: all 0.5s ease-in-out;
-}
-.close::after {
   content: " ";
   position: absolute;
   display: block;
+  left: 9px;
+  transform: rotate(45deg);
+  transition: all 0.5s ease-in-out;
+  top: 4px;
+  width: 2px;
+}
+
+.CloseButton::after {
   background-color: #222;
+  content: " ";
+  display: block;
   height: 2px;
-  top: 9px;
   left: 4px;
+  position: absolute;
   right: 4px;
+  top: 9px;
   transform: rotate(45deg);
   transition: all 0.5s ease-in-out;
 }
 
-.close:hover:before,
-.close:hover:after {
+.CloseButton:hover:before,
+.CloseButton:hover:after {
   background-color: #0a8e26;
 }
