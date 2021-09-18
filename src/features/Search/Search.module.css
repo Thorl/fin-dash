@@ -1,0 +1,43 @@
+.SearchField {
+  align-items: center;
+  background-color: #ffff;
+  display: flex;
+  justify-content: center;
+  margin: 0 0.5rem 0 0.1rem;
+  padding: 0.5rem 0 0.5rem 0;
+  position: sticky;
+  top: 46px;
+  width: 100%;
+  z-index: 10;
+}
+
+.SearchField__Input {
+  margin-bottom: 0.5rem;
+  padding: 0.2rem 0.2rem 0.3rem 0.2rem;
+  width: 100%;
+  z-index: 10;
+}
+
+.SearchResultsGrid {
+  align-items: center;
+  background-color: #ffff;
+  display: grid;
+  grid-template-columns: min-content min-content auto min-content;
+  height: auto;
+  width: 100%;
+  z-index: 10;
+}
+
+.SearchResultsHeader {
+  background-color: #ffff;
+  border-bottom: 0.1rem solid #eee;
+  color: #0a8e27de;
+  padding: 0 0 0.5rem 1rem;
+  position: sticky;
+  top: 97px;
+  z-index: 10;
+}
+
+.SearchResultsHeader__Name {
+  grid-column-start: span 2;
+}

@@ -1,5 +1,5 @@
 import Result from "./components/Result/Result";
-import "./Search.css";
+import * as styles from "./Search.module.css";
 import fetchSymbolHandler from "./api/alpha-vantage/fetch-symbol-handler";
 import { useRef, useEffect, useState } from "react";
 
@@ -52,8 +52,9 @@ const Search = (props) => {
 
   return (
     <>
-      <div className="modal-search-field">
+      <div className={styles["SearchField"]}>
         <input
+          className={styles["SearchField__Input"]}
           type="text"
           placeholder="Enter your search for a stock ticker or company name, currency pair, or crypto/fiat currency pair."
           value={searchQuery}
@@ -61,15 +62,18 @@ const Search = (props) => {
           ref={focusSearch}
         ></input>
       </div>
-      <div className="searchResultsGrid">
-        <div className="searchResultsHeader">
-          <div className="headerText">Type</div>
+      <div className={styles["SearchResultsGrid"]}>
+        <div className={styles["SearchResultsHeader"]}>
+          <div>Type</div>
         </div>
-        <div className="searchResultsHeader">
-          <div className="headerText">Symbol</div>
+        <div className={styles["SearchResultsHeader"]}>
+          <div>Symbol</div>
         </div>
-        <div className="searchResultsHeader">
-          <div className="headerText">Name</div>
+        <div
+          className={`${styles["SearchResultsHeader"]} 
+          ${styles["SearchResultsHeader__Name"]}`}
+        >
+          <div>Name</div>
         </div>
         {isLoading && <p>Loading...</p>}
         {searchResults.map((elem, index) => (

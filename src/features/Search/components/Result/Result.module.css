@@ -1,0 +1,53 @@
+.SearchResultsWrapper {
+  display: contents;
+}
+.SearchResult {
+  border-bottom: 0.1rem solid #eee;
+  padding: 1rem;
+  z-index: 0;
+}
+
+.SearchResult__Button {
+  border-bottom: 0.1rem solid #eee;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.AddChartButton {
+  background-color: #ffff;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  height: 21px;
+  position: relative;
+  width: 21px;
+  z-index: 0;
+}
+
+.AddChartButton::after,
+.AddChartButton::before {
+  background: #0a8e26;
+  box-sizing: border-box;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 0px;
+  position: absolute;
+  top: 10px;
+  width: 20px;
+  z-index: 0;
+}
+
+.AddChartButton::after {
+  height: 20px;
+  left: 9px;
+  top: 1px;
+  width: 2px;
+  z-index: 0;
+}
+
+.AddChartButton:active {
+  transform: translateY(2px);
+}

@@ -4,6 +4,7 @@
   padding: 0;
 }
 
+/* Using the element selector to apply the style globally */
 body {
   width: 100vw;
   height: 100vh;
