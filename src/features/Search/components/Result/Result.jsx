@@ -1,11 +1,13 @@
+import { useCallback } from "react";
+
+import { v4 as uuid } from "uuid";
+
 import { fetchCurrencyData } from "../../api/alpha-vantage/currency-data-handlers";
 import { fetchStockData } from "../../api/alpha-vantage/stock-data-handlers";
 import { fetchCryptoData } from "../../api/alpha-vantage/crypto-data-handlers";
-import { v4 as uuid } from "uuid";
-import { useCallback } from "react";
 import * as styles from "./Result.module.css";
 
-const Result = (props) => {
+export const Result = (props) => {
   const loadData = useCallback(() => {
     switch (props.type) {
       case "Equity":
@@ -62,5 +64,3 @@ const Result = (props) => {
     </div>
   );
 };
-
-export default Result;

@@ -1,9 +1,10 @@
 import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
-import highchartsConfig from "./highcharts/highcharts-config";
+
+import { highchartsConfig } from "./highcharts/highcharts-config";
 import * as styles from "./Chart.module.css";
 
-const Chart = (props) => {
+export const Chart = (props) => {
   const removeHandler = () => {
     props.onRemoveChart(props.id);
   };
@@ -38,5 +39,3 @@ const Chart = (props) => {
     </div>
   );
 };
-
-export default Chart;

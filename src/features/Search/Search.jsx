@@ -1,9 +1,10 @@
-import Result from "./components/Result/Result";
-import * as styles from "./Search.module.css";
-import fetchSymbolHandler from "./api/alpha-vantage/fetch-symbol-handler";
 import { useRef, useEffect, useState } from "react";
 
-const Search = (props) => {
+import { Result } from "./components/Result/Result";
+import { fetchSymbolHandler } from "./api/alpha-vantage/fetch-symbol-handler";
+import * as styles from "./Search.module.css";
+
+export const Search = (props) => {
   const [searchResults, setSearchResults] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -89,5 +90,3 @@ const Search = (props) => {
     </>
   );
 };
-
-export default Search;

@@ -2,7 +2,7 @@ import { fetchStockSymbols } from "./stock-data-handlers";
 import { fetchCurrencySymbols } from "./currency-data-handlers";
 import { fetchCryptoSymbols } from "./crypto-data-handlers";
 
-const fetchSymbolHandler = async (searchQuery) => {
+export const fetchSymbolHandler = async (searchQuery) => {
   const searchResults = [];
 
   const stockSearchResults = await fetchStockSymbols(searchQuery);
@@ -22,5 +22,3 @@ const fetchSymbolHandler = async (searchQuery) => {
 
   return mergedSearchResults;
 };
-
-export default fetchSymbolHandler;

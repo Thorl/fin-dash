@@ -1,6 +1,6 @@
 import { physicalCurrencies } from "./physical-currency-list";
 
-const digitalCurrencies = [
+export const digitalCurrencies = [
   { name: "FirstBlood", symbol: "1ST" },
   { name: "GiveCoin", symbol: "2GIVE" },
   { name: "808Coin", symbol: "808" },
@@ -572,7 +572,7 @@ const digitalCurrencies = [
   { name: "0x", symbol: "ZRX" },
 ];
 
-const digitalCurrencyList = [];
+export const digitalCurrencyList = [];
 
 for (let i = 0; i < digitalCurrencies.length; i++) {
   for (let j = 0; j < physicalCurrencies.length; j++) {
@@ -588,4 +588,3 @@ for (let i = 0; i < digitalCurrencies.length; i++) {
     });
   }
 }
-export default digitalCurrencyList;

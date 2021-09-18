@@ -1,7 +1,7 @@
+import { Chart } from "../../Chart/Chart";
 import * as styles from "./Dashboard.module.css";
-import Chart from "../../Chart/Chart";
 
-const Dashboard = (props) => {
+export const Dashboard = (props) => {
   return (
     <div className={styles["DashboardGrid"]}>
       {props.selectedCharts.map((item, index) => (
@@ -16,5 +16,3 @@ const Dashboard = (props) => {
     </div>
   );
 };
-
-export default Dashboard;

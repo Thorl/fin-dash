@@ -1,4 +1,4 @@
-const physicalCurrencies = [
+export const physicalCurrencies = [
   { name: "United Arab Emirates Dirham", symbol: "AED" },
   { name: "Afghan Afghani", symbol: "AFN" },
   { name: "Albanian Lek", symbol: "ALL" },
@@ -160,7 +160,7 @@ const physicalCurrencies = [
   { name: "Zimbabwean Dollar", symbol: "ZWL" },
 ];
 
-const physicalCurrencyList = [];
+export const physicalCurrencyList = [];
 
 for (let i = 0; i < physicalCurrencies.length; i++) {
   for (let j = 0; j < physicalCurrencies.length; j++) {
@@ -178,5 +178,3 @@ for (let i = 0; i < physicalCurrencies.length; i++) {
     }
   }
 }
-
-export { physicalCurrencyList, physicalCurrencies };
