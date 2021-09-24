@@ -1,9 +1,10 @@
 import { apiKey } from "./alpha-vantage-key";
 
-export const fetchStockSymbols = async (searchQuery) => {
+export const fetchStockSymbols = async (searchQuery, signal) => {
   try {
     const response = await fetch(
-      `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${searchQuery}&apikey=${apiKey}`
+      `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${searchQuery}&apikey=${apiKey}`,
+      { signal }
     );
     if (!response.ok) {
       throw new Error("Something went wrong!");

@@ -2,10 +2,10 @@ import { fetchStockSymbols } from "./stock-data-handlers";
 import { fetchCurrencySymbols } from "./currency-data-handlers";
 import { fetchCryptoSymbols } from "./crypto-data-handlers";
 
-export const fetchSymbolHandler = async (searchQuery) => {
+export const fetchSymbolHandler = async (searchQuery, signal) => {
   const searchResults = [];
 
-  const stockSearchResults = await fetchStockSymbols(searchQuery);
+  const stockSearchResults = await fetchStockSymbols(searchQuery, signal);
   const currencySearchResults = fetchCurrencySymbols(searchQuery);
   const cryptoSearchResults = fetchCryptoSymbols(searchQuery);
 
@@ -15,8 +15,10 @@ export const fetchSymbolHandler = async (searchQuery) => {
     cryptoSearchResults
   );
 
+  console.log();
+
   const mergedSearchResults = searchResults
-    .filter((obj) => obj.length > 0)
+    .filter((obj) => obj && obj.length > 0)
     .flat()
     .filter((obj, index) => index < 999);
 
