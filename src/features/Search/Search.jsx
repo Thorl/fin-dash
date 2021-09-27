@@ -1,8 +1,11 @@
 import { useState } from "react";
 
+import { v4 as uuid } from "uuid";
+
 import { SearchInput } from "./components/Input/SearchInput";
-import { Result } from "./components/Result/Result";
-import * as styles from "./Search.module.css";
+import { SearchResult } from "./components/Result/SearchResult";
+import { fetchData } from "./api/alpha-vantage/fetch-data";
+import styles from "./Search.module.css";
 
 export const Search = (props) => {
   const [searchResults, setSearchResults] = useState([]);
@@ -28,15 +31,25 @@ export const Search = (props) => {
           <div>Name</div>
         </div>
         {isLoading && <p>Loading...</p>}
-        {searchResults.map((elem, index) => (
-          <Result
-            key={index}
-            symbol={elem.symbol}
-            name={elem.name}
-            type={elem.type}
-            onAddChart={props.onAddChart}
-          />
-        ))}
+        {searchResults.map((elem, index) => {
+          const onClick = async () => {
+            props.onAddChart({
+              id: uuid(),
+              name: elem.name,
+              data: await fetchData(elem.type, elem.symbol),
+            });
+          };
+
+          return (
+            <SearchResult
+              key={index}
+              symbol={elem.symbol}
+              name={elem.name}
+              type={elem.type}
+              onClick={onClick}
+            />
+          );
+        })}
       </div>
     </>
   );

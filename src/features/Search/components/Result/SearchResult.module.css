@@ -1,4 +1,4 @@
-.SearchResultsWrapper {
+.SearchResultWrapper {
   display: contents;
 }
 .SearchResult {
@@ -7,14 +7,14 @@
   z-index: 0;
 }
 
-.SearchResult__Button {
+.SearchResultButton {
   border-bottom: 0.1rem solid #eee;
   display: flex;
   justify-content: center;
   padding: 1rem;
 }
 
-.AddChartButton {
+.SearchResultButton__AddChart {
   background-color: #ffff;
   border: none;
   box-sizing: border-box;
@@ -26,8 +26,8 @@
   z-index: 0;
 }
 
-.AddChartButton::after,
-.AddChartButton::before {
+.SearchResultButton__AddChart::after,
+.SearchResultButton__AddChart::before {
   background: #0a8e26;
   box-sizing: border-box;
   content: "";
@@ -40,7 +40,7 @@
   z-index: 0;
 }
 
-.AddChartButton::after {
+.SearchResultButton__AddChart::after {
   height: 20px;
   left: 9px;
   top: 1px;
@@ -48,6 +48,6 @@
   z-index: 0;
 }
 
-.AddChartButton:active {
+.SearchResultButton__AddChart:active {
   transform: translateY(2px);
 }
