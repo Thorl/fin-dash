@@ -1,4 +1,5 @@
 import { apiKey } from "./alpha-vantage-key";
+import * as searchTypes from "../../constants/search-types";
 
 export const fetchStockSymbols = async (searchQuery, signal) => {
   try {
@@ -17,7 +18,7 @@ export const fetchStockSymbols = async (searchQuery, signal) => {
         return {
           symbol: stock["1. symbol"],
           name: stock["2. name"],
-          type: "Equity",
+          type: searchTypes.EQUITY,
         };
       });
 

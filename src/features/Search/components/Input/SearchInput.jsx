@@ -11,7 +11,7 @@ export const SearchInput = (props) => {
     focusInput.current.focus();
   });
 
-  const loadSearchResults = useRef((query, signal) => {
+  const loadSearchResults = useRef(async (query, signal) => {
     if (!query) {
       props.onSetIsLoading(false);
       props.onSetSearchResults([]);
@@ -20,7 +20,8 @@ export const SearchInput = (props) => {
       props.onSetIsLoading(true);
       props.onSetSearchResults([]);
 
-      const results = fetchSymbolHandler(query, signal);
+      const results = await fetchSymbolHandler(query, signal);
+      console.log(results);
       props.onSetSearchResults(results);
       props.onSetIsLoading(false);
     }
@@ -29,7 +30,7 @@ export const SearchInput = (props) => {
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
-
+    console.log(searchQuery);
     const timeOutId = setTimeout(
       () => loadSearchResults(searchQuery, signal),
       500

@@ -1,3 +1,5 @@
+import * as searchType from "../../../constants/search-types";
+
 export const physicalCurrencies = [
   { name: "United Arab Emirates Dirham", symbol: "AED" },
   { name: "Afghan Afghani", symbol: "AFN" },
@@ -168,7 +170,7 @@ for (let i = 0; i < physicalCurrencies.length; i++) {
       physicalCurrencyList.push({
         name: `${physicalCurrencies[i].name}/${physicalCurrencies[j].name}`,
         symbol: `${physicalCurrencies[i].symbol}/${physicalCurrencies[j].symbol}`,
-        type: "Currency",
+        type: searchType.CURRENCY,
         searchParams: [
           `${physicalCurrencies[i].name}/${physicalCurrencies[j].name}`,
           physicalCurrencies[i].symbol + physicalCurrencies[j].symbol,

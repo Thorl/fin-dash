@@ -1,4 +1,5 @@
 import { physicalCurrencies } from "./physical-currency-list";
+import * as searchType from "../../../constants/search-types";
 
 export const digitalCurrencies = [
   { name: "FirstBlood", symbol: "1ST" },
@@ -579,7 +580,7 @@ for (let i = 0; i < digitalCurrencies.length; i++) {
     digitalCurrencyList.push({
       name: `${digitalCurrencies[i].name}/${physicalCurrencies[j].name}`,
       symbol: `${digitalCurrencies[i].symbol}/${physicalCurrencies[j].symbol}`,
-      type: "Crypto",
+      type: searchType.CRYPTOCURRENCY,
       searchParams: [
         `${digitalCurrencies[i].name}/${physicalCurrencies[j].name}`,
         digitalCurrencies[i].symbol + physicalCurrencies[j].symbol,
