@@ -1,4 +1,4 @@
-.Modal {
+.modal {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
   bottom: 0;
@@ -16,13 +16,13 @@
   z-index: 100;
 }
 
-.Modal--Show {
+.modal__show {
   opacity: 1;
   pointer-events: visible;
   transform: translateY(0);
 }
 
-.ModalContent {
+.modal__content {
   background-color: #fff;
   border: 0.15rem solid #0a8e26;
   height: 50rem;
@@ -35,11 +35,11 @@
   width: 50rem;
 }
 
-.ModalContent--Show {
+.modal__content__show {
   transform: translateY(0);
 }
 
-.ModalHeader {
+.modal__header {
   align-content: center;
   background-color: white;
   display: flex;
@@ -50,14 +50,14 @@
   z-index: 10;
 }
 
-.ModalTitle {
+.modal__title {
   color: #131722;
   font-size: 20px;
   margin: 0;
   z-index: 10;
 }
 
-.CloseModalButton {
+.modal__button__close {
   background-color: #fff;
   border: none;
   color: #eeee;
@@ -69,7 +69,7 @@
   z-index: 10;
 }
 
-.CloseModalButton::before {
+.modal__button__close::before {
   content: " ";
   background-color: #bbbb;
   display: block;
@@ -82,7 +82,8 @@
   width: 2px;
   z-index: 10;
 }
-.CloseModalButton::after {
+
+.modal__button__close::after {
   background-color: #bbbb;
   content: " ";
   display: block;
@@ -96,7 +97,7 @@
   z-index: 10;
 }
 
-.CloseModalButton:hover:before,
-.CloseModalButton:hover:after {
+.modal__button__close:hover:before,
+.modal__button__close:hover:after {
   background-color: #0a8e26;
 }

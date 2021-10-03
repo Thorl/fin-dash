@@ -26,11 +26,11 @@ export const Chart = (props) => {
   };
 
   return (
-    <div className={styles["Chart"]}>
+    <div className={styles.chart}>
       <button
-        className={styles["CloseButton"]}
+        className={styles.closeButton}
         onClick={removeHandler}
-      ></button>
+      />
       <HighchartsReact
         highcharts={Highcharts}
         constructorType={"stockChart"}

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import cx from "classnames";
 
 import { v4 as uuid } from "uuid";
 
@@ -17,17 +18,14 @@ export const Search = (props) => {
         onSetSearchResults={setSearchResults}
         onSetIsLoading={setIsLoading}
       />
-      <div className={styles["SearchResultsGrid"]}>
-        <div className={styles["SearchResultsHeader"]}>
+      <div className={styles.searchResult__grid}>
+        <div className={styles.searchResult__header}>
           <div>Type</div>
         </div>
-        <div className={styles["SearchResultsHeader"]}>
+        <div className={styles.searchResult__header}>
           <div>Symbol</div>
         </div>
-        <div
-          className={`${styles["SearchResultsHeader"]} 
-          ${styles["SearchResultsHeader__Name"]}`}
-        >
+        <div className={cx(styles.searchResult__header, styles.searchResult__header__name)}>
           <div>Name</div>
         </div>
         {isLoading && <p>Loading...</p>}

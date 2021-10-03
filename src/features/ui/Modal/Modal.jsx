@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 
-import classNames from "classnames";
+import cx from "classnames";
 
 import { Search } from "../../Search/Search";
 import * as styles from "./Modal.module.css";
@@ -12,25 +12,28 @@ const ModalOverlay = (props) => {
 
   return (
     <div
-      className={classNames(styles["Modal"], {
-        [styles["Modal--Show"]]: props.show,
+      className={cx(styles.modal, {
+        [styles.modal__show]: props.show,
       })}
       onClick={closeModal}
     >
       <div
-        className={classNames(styles["ModalContent"], {
-          [styles["ModalContent--Show"]]: props.show,
+        className={cx(styles.modal__content, {
+          [styles.modal__content__show]: props.show,
         })}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className={styles["ModalHeader"]}>
-          <h2 className={styles["ModalTitle"]}>Add chart</h2>
+        <div className={styles.modal__header}>
+          <h2 className={styles.modal__title}>Add chart</h2>
           <button
-            className={styles["CloseModalButton"]}
+            className={styles.modal__button__close}
             onClick={closeModal}
-          ></button>
+          />
         </div>
-        <Search onAddChart={props.onAddChart} onCloseModal={closeModal} />
+        <Search
+          onAddChart={props.onAddChart}
+          onCloseModal={closeModal}
+        />
       </div>
     </div>
   );

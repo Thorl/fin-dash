@@ -1,20 +1,20 @@
-.SearchResultWrapper {
+.searchResult__wrapper {
   display: contents;
 }
-.SearchResult {
+.searchResult {
   border-bottom: 0.1rem solid #eee;
   padding: 1rem;
   z-index: 0;
 }
 
-.SearchResultButton {
+.searchResult__button {
   border-bottom: 0.1rem solid #eee;
   display: flex;
   justify-content: center;
   padding: 1rem;
 }
 
-.SearchResultButton__AddChart {
+.searchResult__button__addChart {
   background-color: #ffff;
   border: none;
   box-sizing: border-box;
@@ -26,8 +26,8 @@
   z-index: 0;
 }
 
-.SearchResultButton__AddChart::after,
-.SearchResultButton__AddChart::before {
+.searchResult__button__addChart::after,
+.searchResult__button__addChart::before {
   background: #0a8e26;
   box-sizing: border-box;
   content: "";
@@ -40,7 +40,7 @@
   z-index: 0;
 }
 
-.SearchResultButton__AddChart::after {
+.searchResult__button__addChart::after {
   height: 20px;
   left: 9px;
   top: 1px;
@@ -48,6 +48,6 @@
   z-index: 0;
 }
 
-.SearchResultButton__AddChart:active {
+.searchResult__button__addChart:active {
   transform: translateY(2px);
 }

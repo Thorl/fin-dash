@@ -1,4 +1,4 @@
-.Header {
+.header {
   background-color: #fdffff;
   border-bottom: 1px solid #0a8e26;
   display: grid;
@@ -10,7 +10,7 @@
   width: 100vw;
 }
 
-.Header__OpenModalButton {
+.header__modal__open {
   background-color: #ffff;
   border: 0.15rem solid #0a8e26;
   cursor: pointer;
@@ -21,7 +21,7 @@
   text-decoration: none;
 }
 
-.Header__Title {
+.header__title {
   margin-left: 50%;
   padding-top: 1rem;
 }

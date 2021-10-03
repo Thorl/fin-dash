@@ -43,14 +43,14 @@ export const SearchInput = (props) => {
   }, [searchQuery, loadSearchResults]);
 
   return (
-    <form className={styles["SearchField"]}>
+    <form className={styles.searchField}>
       <input
-        className={styles["SearchField__Input"]}
+        className={styles.searchField__input}
         type="text"
         placeholder="Enter your search for a stock ticker or company name, currency pair, or crypto/currency pair."
         onChange={(event) => setSearchQuery(event.target.value)}
         ref={focusInput}
-      ></input>
+      />
     </form>
   );
 };

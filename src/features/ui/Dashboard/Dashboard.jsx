@@ -3,7 +3,7 @@ import * as styles from "./Dashboard.module.css";
 
 export const Dashboard = (props) => {
   return (
-    <div className={styles["DashboardGrid"]}>
+    <div className={styles.dashboard}>
       {props.selectedCharts.map((item, index) => (
         <Chart
           key={index}
