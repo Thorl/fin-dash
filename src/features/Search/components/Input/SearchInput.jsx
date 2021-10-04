@@ -21,7 +21,6 @@ export const SearchInput = (props) => {
       props.onSetSearchResults([]);
 
       const results = await fetchSymbolHandler(query, signal);
-      console.log(results);
       props.onSetSearchResults(results);
       props.onSetIsLoading(false);
     }
@@ -30,7 +29,6 @@ export const SearchInput = (props) => {
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
-    console.log(searchQuery);
     const timeOutId = setTimeout(
       () => loadSearchResults(searchQuery, signal),
       500
@@ -43,9 +41,9 @@ export const SearchInput = (props) => {
   }, [searchQuery, loadSearchResults]);
 
   return (
-    <form className={styles["SearchField"]}>
+    <form className={styles.searchField}>
       <input
-        className={styles["SearchField__Input"]}
+        className={styles.searchField__input}
         type="text"
         placeholder="Enter your search for a stock ticker or company name, currency pair, or crypto/currency pair."
         onChange={(event) => setSearchQuery(event.target.value)}

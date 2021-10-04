@@ -2,19 +2,19 @@ import styles from "./SearchResult.module.css";
 
 export const SearchResult = (props) => {
   return (
-    <div className={styles["SearchResultWrapper"]}>
-      <div className={styles["SearchResult"]}>
+    <div className={styles.searchResultWrapper}>
+      <div className={styles.searchResult}>
         <div>{props.type}</div>
       </div>
-      <div className={styles["SearchResult"]}>
+      <div className={styles.searchResult}>
         <div>{props.symbol}</div>
       </div>
-      <div className={styles["SearchResult"]}>
+      <div className={styles.searchResult}>
         <div>{props.name}</div>
       </div>
-      <div className={styles["SearchResultButton"]}>
+      <div className={styles.searchResultButton}>
         <button
-          className={styles["SearchResultButton__AddChart"]}
+          className={styles.searchResultButton__addChart}
           onClick={props.onClick}
         ></button>
       </div>

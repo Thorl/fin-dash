@@ -12,21 +12,21 @@ const ModalOverlay = (props) => {
 
   return (
     <div
-      className={classNames(styles["Modal"], {
-        [styles["Modal--Show"]]: props.show,
+      className={classNames(styles.modal, {
+        [styles.modal_show]: props.show,
       })}
       onClick={closeModal}
     >
       <div
-        className={classNames(styles["ModalContent"], {
-          [styles["ModalContent--Show"]]: props.show,
+        className={classNames(styles.modalContent, {
+          [styles.modalContent_show]: props.show,
         })}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className={styles["ModalHeader"]}>
-          <h2 className={styles["ModalTitle"]}>Add chart</h2>
+        <div className={styles.modalHeader}>
+          <h2 className={styles.modalTitle}>Add chart</h2>
           <button
-            className={styles["CloseModalButton"]}
+            className={styles.closeModalButton}
             onClick={closeModal}
           ></button>
         </div>

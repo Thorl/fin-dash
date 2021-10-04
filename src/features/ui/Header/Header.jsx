@@ -5,10 +5,10 @@ export const Header = (props) => {
     props.toggleModal(true);
   };
   return (
-    <header className={styles["Header"]}>
-      <h1 className={styles["Header__Title"]}>FinDash</h1>
+    <header className={styles.header}>
+      <h1 className={styles.header__title}>FinDash</h1>
       <button
-        className={styles["Header__OpenModalButton"]}
+        className={styles.header__openModalButton}
         onClick={toggleModalHandler}
       >
         Add chart

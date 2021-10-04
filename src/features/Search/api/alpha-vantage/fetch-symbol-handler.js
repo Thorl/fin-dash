@@ -15,8 +15,6 @@ export const fetchSymbolHandler = async (searchQuery, signal) => {
     cryptoSearchResults
   );
 
-  console.log();
-
   const mergedSearchResults = searchResults
     .filter((obj) => obj && obj.length > 0)
     .flat()
