@@ -17,16 +17,16 @@ export const Search = (props) => {
         onSetSearchResults={setSearchResults}
         onSetIsLoading={setIsLoading}
       />
-      <div className={styles["SearchResultsGrid"]}>
-        <div className={styles["SearchResultsHeader"]}>
+      <div className={styles.searchResultGrid}>
+        <div className={styles.searchResultHeader}>
           <div>Type</div>
         </div>
-        <div className={styles["SearchResultsHeader"]}>
+        <div className={styles.searchResultHeader}>
           <div>Symbol</div>
         </div>
         <div
-          className={`${styles["SearchResultsHeader"]} 
-          ${styles["SearchResultsHeader__Name"]}`}
+          className={`${styles.searchResultHeader} 
+          ${styles.searchResultHeader__name}`}
         >
           <div>Name</div>
         </div>

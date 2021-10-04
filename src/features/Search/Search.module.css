@@ -1,4 +1,4 @@
-.SearchResultsGrid {
+.searchResultGrid {
   align-items: center;
   background-color: #ffff;
   display: grid;
@@ -8,7 +8,7 @@
   z-index: 10;
 }
 
-.SearchResultsHeader {
+.searchResultHeader {
   background-color: #ffff;
   border-bottom: 0.1rem solid #eee;
   color: #0a8e27de;
@@ -18,6 +18,6 @@
   z-index: 10;
 }
 
-.SearchResultsHeader__Name {
+.searchResultHeader__name {
   grid-column-start: span 2;
 }
