@@ -25,12 +25,12 @@
   margin-top: 1rem;
   text-align: center;
   text-decoration: none;
-  transition: all 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
   width: 7rem;
 }
 
 .header__openModalButton:active {
-  transform: scale(0.5);
+  transform: scale(0.92);
 }
 
 .header__openModalButton:hover {
