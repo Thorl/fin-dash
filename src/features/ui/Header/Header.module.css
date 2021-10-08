@@ -11,8 +11,18 @@
 }
 
 .header__title {
+  display: flex;
+  align-items: center;
   margin-left: 50%;
   padding-top: 1rem;
+}
+
+.header__title__name {
+  padding: 0 0 0.7rem 0.4rem;
+}
+
+.header__title__logo {
+  padding: 0 0 0.7rem 0;
 }
 
 .header__openModalButton {
