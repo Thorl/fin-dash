@@ -45,7 +45,11 @@ export const SearchInput = (props) => {
       <input
         className={styles.searchField__input}
         type="text"
-        placeholder="Enter your search for a stock ticker or company name, currency pair, or crypto/currency pair."
+        placeholder={
+          window.innerWidth <= 1000
+            ? "Enter your search for a stock, currency, or crypto."
+            : "Enter your search for a stock ticker or company name, currency pair, or crypto/currency pair."
+        }
         onChange={(event) => setSearchQuery(event.target.value)}
         ref={focusInput}
       ></input>

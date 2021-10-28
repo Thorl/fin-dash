@@ -6,7 +6,6 @@ import { Modal } from "./features/ui/Modal/Modal";
 
 export function App() {
   const [show, setShow] = useState(false);
-
   const [charts, setCharts] = useState([]);
 
   const addChartHandler = (newChart) => {

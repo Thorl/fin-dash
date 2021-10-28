@@ -20,9 +20,7 @@ export const Chart = (props) => {
         data: props.data,
       },
     ],
-    chart: highchartsConfig.chart,
-    rangeSelector: highchartsConfig.rangeSelector,
-    plotOptions: highchartsConfig.plotOptions,
+    ...highchartsConfig,
   };
 
   return (
@@ -32,6 +30,7 @@ export const Chart = (props) => {
         highcharts={Highcharts}
         constructorType={"stockChart"}
         options={options}
+        containerProps={{ style: { height: "100%", width: "100%" } }}
       />
     </div>
   );

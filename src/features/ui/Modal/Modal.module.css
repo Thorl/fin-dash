@@ -25,7 +25,7 @@
 .modalContent {
   background-color: #fff;
   border: 0.15rem solid #0a8e26;
-  height: 50rem;
+  height: 70rem;
   max-height: calc(100vh - 2rem);
   max-width: calc(100vw - 2rem);
   overflow-y: auto;
@@ -43,16 +43,18 @@
   align-content: center;
   background-color: white;
   display: flex;
+  height: 4.2rem;
   justify-content: space-between;
-  padding: 0.5rem 0.5rem 0.7rem 0.5rem;
+  margin: 0.1rem 0.2rem;
+  padding: 0.7rem 0.6rem 0.7rem 0.6rem;
   position: sticky;
-  top: 0px;
+  top: 0rem;
   z-index: 10;
 }
 
 .modalTitle {
   color: #131722;
-  font-size: 20px;
+  font-size: 2rem;
   margin: 0;
   z-index: 10;
 }
@@ -62,41 +64,59 @@
   border: none;
   color: #eeee;
   cursor: pointer;
-  left: 760px;
-  height: 20px;
-  top: 11px;
-  width: 20px;
+  left: -0.5rem;
+  height: 2rem;
+  position: relative;
+  top: 0.2rem;
+  width: 2rem;
   z-index: 10;
 }
 
-.closeModalButton::before {
+.closeModalButton:before,
+.closeModalButton:after {
+  background-color: #333;
   content: " ";
-  background-color: #bbbb;
   display: block;
-  height: 25px;
-  left: 1px;
-  position: relative;
-  top: 1px;
-  transform: rotate(45deg);
+  height: 2.5rem;
+  left: 0.9rem;
+  position: absolute;
+  top: -0.2rem;
   transition: all 0.5s ease-in-out;
-  width: 2px;
+  width: 0.2rem;
   z-index: 10;
 }
-.closeModalButton::after {
-  background-color: #bbbb;
-  content: " ";
-  display: block;
-  height: 2px;
-  left: -10px;
-  position: relative;
-  top: -12px;
+
+.closeModalButton:before {
   transform: rotate(45deg);
-  transition: all 0.5s ease-in-out;
-  width: 25px;
-  z-index: 10;
+}
+.closeModalButton:after {
+  transform: rotate(-45deg);
 }
 
 .closeModalButton:hover:before,
 .closeModalButton:hover:after {
   background-color: #0a8e26;
+}
+
+/* Media queries */
+
+@media (min-width: 1000px) {
+  .modalContent {
+    height: 80rem;
+    width: 70rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .modalContent {
+    height: 90rem;
+    width: 80rem;
+  }
+}
+
+@media (min-width: 1800px) {
+  .modalContent {
+    height: 100rem;
+    width: 90rem;
+  }
 }

@@ -1,55 +1,73 @@
 .chart {
-  align-items: center;
+  align-items: flex-start;
   background: inherit;
   display: flex;
-  font-size: 1.3rem;
   font-weight: bold;
-  height: 500px;
+  height: 39.8rem;
   justify-content: center;
-  width: 730px;
+  width: 36rem;
+}
+
+.chart select {
+  font-size: 2rem;
 }
 
 .closeButton {
   background-color: #fff;
-  border: 1px solid #0a8e26;
-  border-radius: 50%;
+  border: 0.1rem solid #0a8e26;
+  border-radius: 10%;
   cursor: pointer;
   color: #fff;
-  height: 22px;
-  left: 705px;
+  height: 2.1rem;
+  left: 34.6rem;
+  padding: 0.1rem;
   position: relative;
-  top: -248px;
-  width: 22px;
+  top: -0.8rem;
+  width: 2.1rem;
   z-index: 10;
 }
 
-.closeButton::before {
-  background-color: #222;
-  bottom: 4px;
+.closeButton:before,
+.closeButton:after {
+  background-color: #333;
   content: " ";
+  height: 1.5rem;
+  left: 0.8rem;
   position: absolute;
-  display: block;
-  left: 9px;
-  transform: rotate(45deg);
+  top: 0.2rem;
   transition: all 0.5s ease-in-out;
-  top: 4px;
-  width: 2px;
+  width: 0.2rem;
 }
 
-.closeButton::after {
-  background-color: #222;
-  content: " ";
-  display: block;
-  height: 2px;
-  left: 4px;
-  position: absolute;
-  right: 4px;
-  top: 9px;
+.closeButton:before {
   transform: rotate(45deg);
-  transition: all 0.5s ease-in-out;
+}
+.closeButton:after {
+  transform: rotate(-45deg);
 }
 
 .closeButton:hover:before,
 .closeButton:hover:after {
   background-color: #0a8e26;
+}
+
+/* Media queries */
+
+@media (min-width: 1300px) {
+  .chart {
+    width: 41rem;
+  }
+  .closeButton {
+    left: 39.5rem;
+  }
+}
+
+@media (min-width: 1500px) {
+  .chart {
+    height: 40rem;
+    width: 51rem;
+  }
+  .closeButton {
+    left: 49.5rem;
+  }
 }
