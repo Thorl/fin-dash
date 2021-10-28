@@ -1,19 +1,30 @@
 export const highchartsConfig = {
+  chart: {
+    borderColor: "#0a8e26",
+    borderWidth: 1,
+    marginLeft: 7,
+    marginRight: 7,
+  },
+  credits: {
+    enabled: false,
+  },
+  navigator: {
+    series: {
+      color: "#010101",
+    },
+  },
   plotOptions: {
     candlestick: {
       color: "red",
       upColor: "green",
     },
   },
-  chart: {
-    marginLeft: 7,
-    marginRight: 7,
-    borderWidth: 1,
-    borderColor: "#0a8e26",
-    height: 500,
-    width: 699,
-  },
   rangeSelector: {
+    buttonTheme: {
+      style: {
+        fontSize: "1.5rem",
+      },
+    },
     buttons: [
       {
         type: "week",

@@ -17,20 +17,17 @@ export const Search = (props) => {
         onSetSearchResults={setSearchResults}
         onSetIsLoading={setIsLoading}
       />
-      <div className={styles.searchResultGrid}>
-        <div className={styles.searchResultHeader}>
-          <div>Type</div>
-        </div>
-        <div className={styles.searchResultHeader}>
-          <div>Symbol</div>
-        </div>
-        <div
-          className={`${styles.searchResultHeader} 
-          ${styles.searchResultHeader__name}`}
+      <div className={styles.searchGrid}>
+        <h3 className={styles.searchHeader}>Type</h3>
+        <h3 className={styles.searchHeader}>Symbol</h3>
+        <h3
+          className={`${styles.searchHeader} 
+          ${styles.searchHeader__name}`}
         >
-          <div>Name</div>
-        </div>
-        {isLoading && <p>Loading...</p>}
+          Name
+        </h3>
+
+        {isLoading && <p className={styles.loading}>Loading...</p>}
         {searchResults.map((elem, index) => {
           const onClick = async () => {
             props.onAddChart({

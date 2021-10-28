@@ -1,53 +1,62 @@
-.searchResultWrapper {
-  display: contents;
-}
 .searchResult {
-  border-bottom: 0.1rem solid #eee;
-  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 0 0.5rem;
+  padding: 0.5rem 0.5rem 0.9rem 0.5rem;
   z-index: 0;
 }
 
 .searchResultButton {
-  border-bottom: 0.1rem solid #eee;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   padding: 1rem;
 }
 
 .searchResultButton__addChart {
   background-color: #ffff;
   border: none;
-  box-sizing: border-box;
   cursor: pointer;
   display: block;
-  height: 21px;
+  height: 2.1rem;
   position: relative;
-  width: 21px;
+  width: 2.1rem;
   z-index: 0;
 }
 
-.searchResultButton__addChart::after,
-.searchResultButton__addChart::before {
+.searchResultButton__addChart:before,
+.searchResultButton__addChart:after {
   background: #0a8e26;
-  box-sizing: border-box;
-  content: "";
-  display: block;
-  height: 2px;
-  left: 0px;
+  content: " ";
+  height: 1.8rem;
+  left: 0.9rem;
   position: absolute;
-  top: 10px;
-  width: 20px;
-  z-index: 0;
+  top: 0.2rem;
+  transition: all 0.5s ease-in-out;
+  width: 0.2rem;
+  z-index: 10;
 }
 
-.searchResultButton__addChart::after {
-  height: 20px;
-  left: 9px;
-  top: 1px;
-  width: 2px;
-  z-index: 0;
+.searchResultButton__addChart:before {
+  transform: rotate(90deg);
+}
+.searchResultButton__addChart:after {
+  transform: rotate(-180deg);
 }
 
 .searchResultButton__addChart:active {
-  transform: translateY(2px);
+  transform: scale(0.92);
+}
+
+.bottomBorder {
+  border-bottom: 0.1rem solid #eee;
+  grid-column-start: span 4;
+  width: 100%;
+}
+
+/* Media queries */
+
+@media (min-width: 540px) {
+  .searchResult {
+    font-size: 1.3rem;
+  }
 }
