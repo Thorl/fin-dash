@@ -40,19 +40,22 @@ export const fetchStockData = async (stockSymbol) => {
 
     const timeseriesData = data["Time Series (Daily)"];
 
-    const formattedData = Object.keys(timeseriesData)
-      .sort()
-      .map((key) => {
-        const formatDate = key.split("-");
-        return [
-          Date.UTC(formatDate[0], formatDate[1] - 1, formatDate[2]),
-          +timeseriesData[key]["1. open"],
-          +timeseriesData[key]["2. high"],
-          +timeseriesData[key]["3. low"],
-          +timeseriesData[key]["4. close"],
-        ];
-      });
-    return formattedData;
+    if (!timeseriesData) {
+      return [];
+    } else {
+      return Object.keys(timeseriesData)
+        .sort()
+        .map((key) => {
+          const formatDate = key.split("-");
+          return [
+            Date.UTC(formatDate[0], formatDate[1] - 1, formatDate[2]),
+            +timeseriesData[key]["1. open"],
+            +timeseriesData[key]["2. high"],
+            +timeseriesData[key]["3. low"],
+            +timeseriesData[key]["4. close"],
+          ];
+        });
+    }
   } catch (error) {
     console.log(error.message);
   }

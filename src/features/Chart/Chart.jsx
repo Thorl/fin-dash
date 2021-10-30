@@ -1,4 +1,5 @@
 import Highcharts from "highcharts/highstock";
+import NoDataToDisplay from "highcharts/modules/no-data-to-display";
 import HighchartsReact from "highcharts-react-official";
 
 import { highchartsConfig } from "./highcharts/highcharts-config";
@@ -8,6 +9,8 @@ export const Chart = (props) => {
   const removeHandler = () => {
     props.onRemoveChart(props.id);
   };
+
+  NoDataToDisplay(Highcharts);
 
   const options = {
     title: {
