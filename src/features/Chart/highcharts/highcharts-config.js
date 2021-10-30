@@ -8,6 +8,9 @@ export const highchartsConfig = {
   credits: {
     enabled: false,
   },
+  lang: {
+    noData: "No data to display for this search. Please try again.",
+  },
   navigator: {
     series: {
       color: "#010101",

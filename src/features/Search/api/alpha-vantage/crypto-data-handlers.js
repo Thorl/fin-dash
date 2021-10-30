@@ -28,19 +28,22 @@ export const fetchCryptoData = async (currencyPair) => {
 
     const timeseriesData = data["Time Series (Digital Currency Daily)"];
 
-    const formattedData = Object.keys(timeseriesData)
-      .sort()
-      .map((key) => {
-        const formatDate = key.split("-");
-        return [
-          Date.UTC(formatDate[0], formatDate[1] - 1, formatDate[2]),
-          +timeseriesData[key][`1a. open (${toCurrency})`],
-          +timeseriesData[key][`2a. high (${toCurrency})`],
-          +timeseriesData[key][`3a. low (${toCurrency})`],
-          +timeseriesData[key][`4a. close (${toCurrency})`],
-        ];
-      });
-    return formattedData;
+    if (!timeseriesData) {
+      return [];
+    } else {
+      return Object.keys(timeseriesData)
+        .sort()
+        .map((key) => {
+          const formatDate = key.split("-");
+          return [
+            Date.UTC(formatDate[0], formatDate[1] - 1, formatDate[2]),
+            +timeseriesData[key][`1a. open (${toCurrency})`],
+            +timeseriesData[key][`2a. high (${toCurrency})`],
+            +timeseriesData[key][`3a. low (${toCurrency})`],
+            +timeseriesData[key][`4a. close (${toCurrency})`],
+          ];
+        });
+    }
   } catch (error) {
     console.log(error.message);
   }

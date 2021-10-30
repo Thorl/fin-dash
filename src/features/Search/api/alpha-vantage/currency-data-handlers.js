@@ -28,18 +28,24 @@ export const fetchCurrencyData = async (currencyPair) => {
 
     const timeseriesData = data["Time Series FX (Daily)"];
 
-    return Object.keys(timeseriesData)
-      .sort()
-      .map((key) => {
-        const formatDate = key.split("-");
-        return [
-          Date.UTC(formatDate[0], formatDate[1] - 1, formatDate[2]),
-          +timeseriesData[key]["1. open"],
-          +timeseriesData[key]["2. high"],
-          +timeseriesData[key]["3. low"],
-          +timeseriesData[key]["4. close"],
-        ];
-      });
+    console.log("fetchCurrencyData fired. timeseriesData: ", timeseriesData);
+
+    if (!timeseriesData) {
+      return [];
+    } else {
+      return Object.keys(timeseriesData)
+        .sort()
+        .map((key) => {
+          const formatDate = key.split("-");
+          return [
+            Date.UTC(formatDate[0], formatDate[1] - 1, formatDate[2]),
+            +timeseriesData[key]["1. open"],
+            +timeseriesData[key]["2. high"],
+            +timeseriesData[key]["3. low"],
+            +timeseriesData[key]["4. close"],
+          ];
+        });
+    }
   } catch (error) {
     console.log(error.message);
   }
