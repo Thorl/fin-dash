@@ -2,20 +2,20 @@
   align-items: center;
   background-color: #ffff;
   display: flex;
-  height: 2.7rem;
+  height: 3.3rem;
   justify-content: center;
-  margin: 0 0.5rem;
-  padding: 0.1rem 0 0.2rem 0;
+  margin: 0 0.5rem 0 0.5rem;
+  padding: 0 0 0.1rem 0;
   position: sticky;
-  top: 4.2rem;
+  top: 3.7rem;
   width: 98%;
   z-index: 10;
 }
 
 .searchField__input {
-  font-size: 1.3rem;
-  height: 2.5rem;
-  padding: 0.2rem 0.2rem 0.3rem 0.2rem;
+  font-size: 1.4rem;
+  height: 2.6rem;
+  padding: 0.3rem 0.2rem 0.3rem 0.2rem;
   width: 99%;
   z-index: 10;
 }
