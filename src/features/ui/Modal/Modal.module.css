@@ -43,12 +43,12 @@
   align-content: center;
   background-color: white;
   display: flex;
-  height: 4.2rem;
+  height: 3.7rem;
   justify-content: space-between;
-  margin: 0.1rem 0.2rem;
-  padding: 0.7rem 0.6rem 0.7rem 0.6rem;
+  margin: 0rem 0.2rem 0 0.2rem;
+  padding: 0.6rem 0.6rem 0.6rem 0.7rem;
   position: sticky;
-  top: 0rem;
+  top: 0;
   z-index: 10;
 }
 
@@ -104,6 +104,10 @@
   .modalContent {
     height: 80rem;
     width: 70rem;
+  }
+
+  .modalHeader {
+    padding: 0.6rem 0.6rem 0.6rem 0.9rem;
   }
 }
 

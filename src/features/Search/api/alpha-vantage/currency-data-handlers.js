@@ -28,8 +28,6 @@ export const fetchCurrencyData = async (currencyPair) => {
 
     const timeseriesData = data["Time Series FX (Daily)"];
 
-    console.log("fetchCurrencyData fired. timeseriesData: ", timeseriesData);
-
     if (!timeseriesData) {
       return [];
     } else {
