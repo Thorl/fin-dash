@@ -11,11 +11,19 @@ export const Search = (props) => {
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  const setSearchResultsHandler = (results) => {
+    setSearchResults(results);
+  };
+
+  const setIsLoadingHandler = (bool) => {
+    setIsLoading(bool);
+  };
+
   return (
     <>
       <SearchInput
-        onSetSearchResults={setSearchResults}
-        onSetIsLoading={setIsLoading}
+        onSetSearchResults={setSearchResultsHandler}
+        onSetIsLoading={setIsLoadingHandler}
       />
       <div className={styles.searchGrid}>
         <h3 className={styles.searchHeader}>Type</h3>
