@@ -4,22 +4,21 @@ import { Chart } from "../../Chart/Chart";
 import * as styles from "./Dashboard.module.css";
 
 export const Dashboard = (props) => {
-  console.log(props.selectedCharts);
   return (
     <>
       <div
         className={classNames({
-          [styles.placeholder]: !props.selectedCharts.length,
+          [styles.placeholder]: !props.addedCharts.length,
         })}
       >
-        {!props.selectedCharts.length && (
+        {!props.addedCharts.length && (
           <p className={styles.placeholder__Text}>
-            Press 'Add chart' to begin adding charts...
+            Click 'Add chart' to begin adding charts...
           </p>
         )}
       </div>
       <div className={styles.dashboardGrid}>
-        {props.selectedCharts.map((item, index) => (
+        {props.addedCharts.map((item, index) => (
           <Chart
             key={index}
             id={item.id}

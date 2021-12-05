@@ -1,15 +1,6 @@
 import { apiKey } from "./alpha-vantage-key";
-import { physicalCurrencyList } from "./currency-lists/physical-currency-list";
 
-export const fetchCurrencySymbols = (searchQuery) => {
-  return physicalCurrencyList.filter((currency) => {
-    return currency.searchParams.some((param) => {
-      return param.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1;
-    });
-  });
-};
-
-export const fetchCurrencyData = async (currencyPair) => {
+export const getCurrencyData = async (currencyPair) => {
   const regexMatch = currencyPair.match(
     /^(?<fromCurrency>[a-z]{3})\/(?<toCurrency>[a-z]{3})$/i
   );

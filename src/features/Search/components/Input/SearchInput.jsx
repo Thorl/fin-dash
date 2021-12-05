@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 
-import { fetchSymbolHandler } from "../../api/alpha-vantage/fetch-symbol-handler";
+import { getAllSearchResults } from "../../api/alpha-vantage/get-all-search-results";
 import styles from "./SearchInput.module.css";
 
 export const SearchInput = (props) => {
@@ -13,16 +13,16 @@ export const SearchInput = (props) => {
 
   const loadSearchResults = useRef(async (query, signal) => {
     if (!query) {
-      props.onSetIsLoading(false);
-      props.onSetSearchResults([]);
+      props.setIsLoading(false);
+      props.setSearchResults([]);
       return;
     } else {
-      props.onSetIsLoading(true);
-      props.onSetSearchResults([]);
+      props.setIsLoading(true);
+      props.setSearchResults([]);
 
-      const results = await fetchSymbolHandler(query, signal);
-      props.onSetSearchResults(results);
-      props.onSetIsLoading(false);
+      const results = await getAllSearchResults(query, signal);
+      props.setSearchResults(results);
+      props.setIsLoading(false);
     }
   }).current;
 

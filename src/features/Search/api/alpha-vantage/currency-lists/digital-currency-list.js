@@ -1,5 +1,5 @@
 import { physicalCurrencies } from "./physical-currency-list";
-import * as searchType from "../../../constants/search-types";
+import * as searchType from "../../../constants/result-types";
 
 export const digitalCurrencies = [
   { name: "FirstBlood", symbol: "1ST" },
