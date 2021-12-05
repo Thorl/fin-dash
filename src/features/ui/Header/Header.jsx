@@ -2,8 +2,8 @@ import logo from "../../../assets/logo/findash-logo.svg";
 import * as styles from "./Header.module.css";
 
 export const Header = (props) => {
-  const toggleModalHandler = () => {
-    props.toggleModal(true);
+  const handleOpenModalClick = () => {
+    props.onOpenModal(true);
   };
   return (
     <header className={styles.header}>
@@ -17,7 +17,7 @@ export const Header = (props) => {
       </div>
       <button
         className={styles.header__openModalButton}
-        onClick={toggleModalHandler}
+        onClick={handleOpenModalClick}
       >
         Add chart
       </button>

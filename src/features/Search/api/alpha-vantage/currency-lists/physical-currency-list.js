@@ -1,4 +1,4 @@
-import * as searchType from "../../../constants/search-types";
+import * as searchType from "../../../constants/result-types";
 
 export const physicalCurrencies = [
   { name: "United Arab Emirates Dirham", symbol: "AED" },

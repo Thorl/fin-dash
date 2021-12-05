@@ -6,7 +6,7 @@ import { highchartsConfig } from "./highcharts/highcharts-config";
 import * as styles from "./Chart.module.css";
 
 export const Chart = (props) => {
-  const removeHandler = () => {
+  const handleOnClick = () => {
     props.onRemoveChart(props.id);
   };
 
@@ -28,7 +28,7 @@ export const Chart = (props) => {
 
   return (
     <div className={styles.chart}>
-      <button className={styles.closeButton} onClick={removeHandler}></button>
+      <button className={styles.closeButton} onClick={handleOnClick}></button>
       <HighchartsReact
         highcharts={Highcharts}
         constructorType={"stockChart"}

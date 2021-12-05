@@ -1,34 +1,6 @@
 import { apiKey } from "./alpha-vantage-key";
-import * as searchTypes from "../../constants/search-types";
 
-export const fetchStockSymbols = async (searchQuery, signal) => {
-  try {
-    const response = await fetch(
-      `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${searchQuery}&apikey=${apiKey}`,
-      { signal }
-    );
-    if (!response.ok) {
-      throw new Error("Something went wrong!");
-    }
-    const data = await response.json();
-
-    const stocksList = [...data.bestMatches]
-      .filter((stock) => stock["3. type"] === "Equity")
-      .map((stock) => {
-        return {
-          symbol: stock["1. symbol"],
-          name: stock["2. name"],
-          type: searchTypes.EQUITY,
-        };
-      });
-
-    return stocksList;
-  } catch (error) {
-    console.log(error.message);
-  }
-};
-
-export const fetchStockData = async (stockSymbol) => {
+export const getStockData = async (stockSymbol) => {
   try {
     const response = await fetch(
       `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stockSymbol}&outputsize=full&apikey=${apiKey}`

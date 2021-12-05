@@ -6,20 +6,20 @@ import { Search } from "../../Search/Search";
 import * as styles from "./Modal.module.css";
 
 const ModalOverlay = (props) => {
-  const closeModal = () => {
-    props.onClose(false);
+  const handleCloseModalClick = () => {
+    props.onCloseModal(false);
   };
 
   return (
     <div
       className={classNames(styles.modal, {
-        [styles.modal_show]: props.show,
+        [styles.modal_show]: props.isModalVisible,
       })}
-      onClick={closeModal}
+      onClick={handleCloseModalClick}
     >
       <div
         className={classNames(styles.modalContent, {
-          [styles.modalContent_show]: props.show,
+          [styles.modalContent_show]: props.isModalVisible,
         })}
         onClick={(e) => e.stopPropagation()}
       >
@@ -27,10 +27,10 @@ const ModalOverlay = (props) => {
           <h2 className={styles.modalTitle}>Add chart</h2>
           <button
             className={styles.closeModalButton}
-            onClick={closeModal}
+            onClick={handleCloseModalClick}
           ></button>
         </div>
-        <Search onAddChart={props.onAddChart} onCloseModal={closeModal} />
+        <Search onAddChart={props.onAddChart} />
       </div>
     </div>
   );
@@ -41,8 +41,8 @@ export const Modal = (props) => {
     <>
       {ReactDOM.createPortal(
         <ModalOverlay
-          onClose={props.onClose}
-          show={props.show}
+          onCloseModal={props.onCloseModal}
+          isModalVisible={props.isModalVisible}
           onAddChart={props.onAddChart}
         />,
         document.getElementById("modal-overlay")
