@@ -1,11 +1,10 @@
 import { apiKey } from "./alpha-vantage-key";
 
 export const getCurrencyData = async (currencyPair) => {
-  const regexMatch = currencyPair.match(
-    /^(?<fromCurrency>[a-z]{3})\/(?<toCurrency>[a-z]{3})$/i
-  );
-  const fromCurrency = regexMatch.groups.fromCurrency;
-  const toCurrency = regexMatch.groups.toCurrency;
+  const splitCurrencyPair = currencyPair.split("/");
+
+  const fromCurrency = splitCurrencyPair[0];
+  const toCurrency = splitCurrencyPair[1];
 
   try {
     const response = await fetch(
