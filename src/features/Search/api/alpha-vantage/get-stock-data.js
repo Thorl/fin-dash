@@ -1,6 +1,12 @@
-import { apiKey } from "./alpha-vantage-key";
-
 export const getStockData = async (stockSymbol) => {
+  let apiKey;
+
+  fetch(".netlify/functions/api")
+    .then((response) => response.json())
+    .then((json) => {
+      apiKey = json.api;
+    });
+
   try {
     const response = await fetch(
       `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stockSymbol}&outputsize=full&apikey=${apiKey}`
