@@ -1,10 +1,16 @@
-import { apiKey } from "./alpha-vantage-key";
-
 export const getCurrencyData = async (currencyPair) => {
   const splitCurrencyPair = currencyPair.split("/");
 
   const fromCurrency = splitCurrencyPair[0];
   const toCurrency = splitCurrencyPair[1];
+
+  let apiKey;
+
+  fetch(".netlify/functions/api")
+    .then((response) => response.json())
+    .then((json) => {
+      apiKey = json.api;
+    });
 
   try {
     const response = await fetch(
