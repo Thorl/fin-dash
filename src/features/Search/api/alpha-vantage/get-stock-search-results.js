@@ -1,14 +1,7 @@
-import * as searchTypes from "../../constants/result-types";
+import { apiKey } from "./alpha-vantage-key.js";
+import * as resultType from "../../constants/result-types";
 
 export const getStockSearchResults = async (searchQuery, signal) => {
-  let apiKey;
-
-  fetch(".netlify/functions/api")
-    .then((response) => response.json())
-    .then((json) => {
-      apiKey = json.api;
-    });
-
   try {
     const response = await fetch(
       `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${searchQuery}&apikey=${apiKey}`,
@@ -25,7 +18,7 @@ export const getStockSearchResults = async (searchQuery, signal) => {
         return {
           symbol: stock["1. symbol"],
           name: stock["2. name"],
-          type: searchTypes.EQUITY,
+          type: resultType.EQUITY,
         };
       });
 
