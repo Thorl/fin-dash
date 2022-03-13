@@ -35,6 +35,6 @@ export const getCryptoData = async (currencyPair) => {
         });
     }
   } catch (error) {
-    console.log(error.message);
+    console.error(error.message);
   }
 };

@@ -3,7 +3,7 @@ import * as styles from "./Header.module.css";
 
 export const Header = (props) => {
   const handleOpenModalClick = () => {
-    props.onOpenModal(true);
+    props.onShowModal(true);
   };
   return (
     <header className={styles.header}>

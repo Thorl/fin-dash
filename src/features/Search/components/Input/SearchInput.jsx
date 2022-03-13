@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 
-import { getAllSearchResults } from "../../api/alpha-vantage/get-all-search-results";
+import { getSearchResults } from "../../api/alpha-vantage/get-search-results";
 import styles from "./SearchInput.module.css";
 
 export const SearchInput = (props) => {
@@ -13,16 +13,20 @@ export const SearchInput = (props) => {
 
   const loadSearchResults = useRef(async (query, signal) => {
     if (!query) {
-      props.setIsLoading(false);
+      props.isLoading(false);
+      props.wasSearchMade(false);
       props.setSearchResults([]);
       return;
     } else {
-      props.setIsLoading(true);
+      props.wasSearchMade(false);
+      props.isLoading(true);
       props.setSearchResults([]);
 
-      const results = await getAllSearchResults(query, signal);
+      const results = await getSearchResults(query, signal);
+
       props.setSearchResults(results);
-      props.setIsLoading(false);
+      props.wasSearchMade(true);
+      props.isLoading(false);
     }
   }).current;
 
@@ -40,16 +44,21 @@ export const SearchInput = (props) => {
     };
   }, [searchQuery, loadSearchResults]);
 
+  let placeholderText;
+
+  if (window.innerWidth <= 1000) {
+    placeholderText = "Enter your search for a stock, currency, or crypto.";
+  } else {
+    placeholderText =
+      "Enter your search for a stock ticker or company name, currency pair, or crypto/currency pair.";
+  }
+
   return (
     <form className={styles.searchField}>
       <input
         className={styles.searchField__input}
         type="text"
-        placeholder={
-          window.innerWidth <= 1000
-            ? "Enter your search for a stock, currency, or crypto."
-            : "Enter your search for a stock ticker or company name, currency pair, or crypto/currency pair."
-        }
+        placeholder={placeholderText}
         onChange={(event) => setSearchQuery(event.target.value)}
         ref={focusInput}
       ></input>

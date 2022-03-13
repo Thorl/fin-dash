@@ -24,6 +24,6 @@ export const getStockSearchResults = async (searchQuery, signal) => {
 
     return stocksList;
   } catch (error) {
-    console.log(error.message);
+    console.error(error.message);
   }
 };

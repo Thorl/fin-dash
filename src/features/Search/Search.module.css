@@ -35,6 +35,12 @@
   text-align: left;
 }
 
+.noResultsFound {
+  font-size: 1.5rem;
+  text-align: left;
+  grid-column-start: span 4;
+}
+
 @keyframes pulse {
   0% {
     opacity: 1;

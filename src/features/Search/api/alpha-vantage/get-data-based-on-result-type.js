@@ -12,6 +12,6 @@ export const getDataBasedOnResultType = (type, symbol) => {
     case resultType.CRYPTOCURRENCY:
       return getCryptoData(symbol);
     default:
-      throw new Error("Something went wrong!");
+      throw new Error("Something went wrong! Could not find case for " + type);
   }
 };
