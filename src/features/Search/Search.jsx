@@ -10,20 +10,26 @@ import styles from "./Search.module.css";
 export const Search = (props) => {
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [wasSearchMade, setWasSearchMade] = useState(false);
 
   const handleSetSearchResults = (results) => {
     setSearchResults(results);
   };
 
-  const handleSetIsLoading = (bool) => {
+  const handleIsLoading = (bool) => {
     setIsLoading(bool);
+  };
+
+  const handleWasSearchMade = (bool) => {
+    setWasSearchMade(bool);
   };
 
   return (
     <>
       <SearchInput
         setSearchResults={handleSetSearchResults}
-        setIsLoading={handleSetIsLoading}
+        isLoading={handleIsLoading}
+        wasSearchMade={handleWasSearchMade}
       />
       <div className={styles.searchGrid}>
         <h3 className={styles.searchHeader}>Type</h3>
@@ -36,6 +42,11 @@ export const Search = (props) => {
         </h3>
 
         {isLoading && <p className={styles.loading}>Loading...</p>}
+        {wasSearchMade && searchResults.length === 0 && (
+          <p className={styles.noResultsFound}>
+            No results found. Please try another search.
+          </p>
+        )}
         {searchResults.map((result, index) => {
           const handleAddChartClick = async () => {
             props.onAddChart({

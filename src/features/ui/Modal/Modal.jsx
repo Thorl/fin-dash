@@ -7,19 +7,19 @@ import * as styles from "./Modal.module.css";
 
 const ModalOverlay = (props) => {
   const handleCloseModalClick = () => {
-    props.onCloseModal(false);
+    props.onShowModal(false);
   };
 
   return (
     <div
       className={classNames(styles.modal, {
-        [styles.modal_show]: props.isModalVisible,
+        [styles.modal_show]: props.isModalShowing,
       })}
       onClick={handleCloseModalClick}
     >
       <div
         className={classNames(styles.modalContent, {
-          [styles.modalContent_show]: props.isModalVisible,
+          [styles.modalContent_show]: props.isModalShowing,
         })}
         onClick={(e) => e.stopPropagation()}
       >
@@ -41,8 +41,8 @@ export const Modal = (props) => {
     <>
       {ReactDOM.createPortal(
         <ModalOverlay
-          onCloseModal={props.onCloseModal}
-          isModalVisible={props.isModalVisible}
+          onShowModal={props.onShowModal}
+          isModalShowing={props.isModalShowing}
           onAddChart={props.onAddChart}
         />,
         document.getElementById("modal-overlay")

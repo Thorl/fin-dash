@@ -29,6 +29,6 @@ export const getStockData = async (stockSymbol) => {
         });
     }
   } catch (error) {
-    console.log(error.message);
+    console.error(error.message);
   }
 };

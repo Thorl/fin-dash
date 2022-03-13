@@ -35,11 +35,3 @@ With these criteria in mind, I chose [Highcharts](https://www.highcharts.com/) a
 Highcharts is quite easy to use, has a tonne of customization options, detailed documentation with live examples, a super-good support forum, and a wrapper for React, which means you can use the charts as components. The fact that the free version is so comprehensive, and that you can even get the full version for free if your use case is non-commercial, makes this the ideal choice for a personal project.
 
 Alpha Vantage is on the one hand very easy to use, and you get 20 years of historical prices, but on the other hand, the free version has some clear limitations. It only gives you 5 calls per minute. As a beginner, this was something I failed to consider when picking my API. I only realized what the limit was well after I had implemented it in my project, and that it wouldn’t be enough. This point should’ve been a part of my initial choosing criteria. If you want to get more calls, you have to buy the premium version, which starts at 50$/month. Quite expensive for a personal project. Another drawback is that it doesn’t provide an endpoint for searching for currencies or cryptocurrencies. Instead, there’s only a link to a .CSV file with the supported currencies. Among all the free APIs out there, it definitely is one of the best ones. However, for my specific project, its limitations are a bit too big to make it the optimal choice. Still, it’s acceptable as a first version and “proof-of-concept” for the app.
-
-## Future plans
-
-These are the main plans for the near future:
-
-- Change the API: The current API doesn’t provide enough calls per minute for an optimal user experience. It also doesn’t have an endpoint for searching currencies and cryptos. That means I have to use a hard-coded solution, which is far from ideal. The next API has to address both of these issues.
-
-- Add a “greeting modal”: Currently, there’s only a prompt on the empty dashboard telling the user to “Press the ‘Add chart’ button to start adding charts”. I want first-time visitors to be greeted with a pop-up window that explains the app in more detail.
