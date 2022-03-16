@@ -1,4 +1,5 @@
 import * as searchType from "../../../constants/result-types";
+import { CurrencyList } from "../../../../../ts-models/currency-list.model";
 
 export const physicalCurrencies = [
   { name: "United Arab Emirates Dirham", symbol: "AED" },
@@ -162,7 +163,7 @@ export const physicalCurrencies = [
   { name: "Zimbabwean Dollar", symbol: "ZWL" },
 ];
 
-export const physicalCurrencyList = [];
+export const physicalCurrencyList: CurrencyList[] = [];
 
 for (let i = 0; i < physicalCurrencies.length; i++) {
   for (let j = 0; j < physicalCurrencies.length; j++) {

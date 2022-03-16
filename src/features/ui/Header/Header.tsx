@@ -1,7 +1,11 @@
 import logo from "../../../assets/logo/findash-logo.svg";
-import * as styles from "./Header.module.css";
+import styles from "./Header.module.css";
 
-export const Header = (props) => {
+interface HeaderProps {
+  onShowModal: (bool: boolean) => void;
+}
+
+export const Header = (props: HeaderProps) => {
   const handleOpenModalClick = () => {
     props.onShowModal(true);
   };

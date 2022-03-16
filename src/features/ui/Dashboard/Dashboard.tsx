@@ -1,9 +1,15 @@
 import classNames from "classnames";
 
 import { Chart } from "../../Chart/Chart";
-import * as styles from "./Dashboard.module.css";
+import styles from "./Dashboard.module.css";
+import { ChartModel } from "../../../ts-models/chart.model";
 
-export const Dashboard = (props) => {
+interface DashboardProps {
+  addedCharts: ChartModel[];
+  onRemoveChart: (id: string) => void;
+}
+
+export const Dashboard = (props: DashboardProps) => {
   return (
     <>
       <div

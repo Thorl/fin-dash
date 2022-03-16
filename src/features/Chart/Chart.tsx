@@ -3,9 +3,16 @@ import NoDataToDisplay from "highcharts/modules/no-data-to-display";
 import HighchartsReact from "highcharts-react-official";
 
 import { highchartsConfig } from "./highcharts/highcharts-config";
-import * as styles from "./Chart.module.css";
+import styles from "./Chart.module.css";
 
-export const Chart = (props) => {
+interface ChartProps {
+  id: string;
+  name: string;
+  data: number[][] | undefined;
+  onRemoveChart: (id: string) => void;
+}
+
+export const Chart = (props: ChartProps) => {
   const handleOnClick = () => {
     props.onRemoveChart(props.id);
   };

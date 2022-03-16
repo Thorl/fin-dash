@@ -1,6 +1,13 @@
 import styles from "./SearchResult.module.css";
 
-export const SearchResult = (props) => {
+interface SearchResultProps {
+  symbol: string | undefined;
+  name: string | undefined;
+  type: string | undefined;
+  onClick: () => void;
+}
+
+export const SearchResult = (props: SearchResultProps) => {
   return (
     <>
       <p className={styles.searchResult}>{props.type}</p>

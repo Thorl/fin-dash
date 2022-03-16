@@ -1,6 +1,6 @@
-import { apiKey } from "./alpha-vantage-key.js";
+import { apiKey } from "./alpha-vantage-key";
 
-export const getCryptoData = async (currencyPair) => {
+export const getCryptoData = async (currencyPair: string) => {
   const splitCurrencyPair = currencyPair.split("/");
 
   const fromCurrency = splitCurrencyPair[0];
@@ -11,7 +11,7 @@ export const getCryptoData = async (currencyPair) => {
       `https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=${fromCurrency}&market=${toCurrency}&outputsize=full&apikey=${apiKey}`
     );
     if (!response.ok) {
-      throw new Error("Something went wrong!");
+      throw new Error("Something went wrong while fetching crypto data!");
     }
 
     const data = await response.json();
@@ -26,7 +26,7 @@ export const getCryptoData = async (currencyPair) => {
         .map((key) => {
           const formatDate = key.split("-");
           return [
-            Date.UTC(formatDate[0], formatDate[1] - 1, formatDate[2]),
+            Date.UTC(+formatDate[0], +formatDate[1] - 1, +formatDate[2]),
             +timeseriesData[key][`1a. open (${toCurrency})`],
             +timeseriesData[key][`2a. high (${toCurrency})`],
             +timeseriesData[key][`3a. low (${toCurrency})`],
@@ -34,7 +34,7 @@ export const getCryptoData = async (currencyPair) => {
           ];
         });
     }
-  } catch (error) {
+  } catch (error: any) {
     console.error(error.message);
   }
 };

@@ -1,4 +1,5 @@
 import { physicalCurrencies } from "./physical-currency-list";
+import { CurrencyList } from "../../../../../ts-models/currency-list.model";
 import * as searchType from "../../../constants/result-types";
 
 export const digitalCurrencies = [
@@ -573,7 +574,7 @@ export const digitalCurrencies = [
   { name: "0x", symbol: "ZRX" },
 ];
 
-export const digitalCurrencyList = [];
+export const digitalCurrencyList: CurrencyList[] = [];
 
 for (let i = 0; i < digitalCurrencies.length; i++) {
   for (let j = 0; j < physicalCurrencies.length; j++) {
