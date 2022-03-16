@@ -1,6 +1,6 @@
-import { apiKey } from "./alpha-vantage-key.js";
+import { apiKey } from "./alpha-vantage-key";
 
-export const getCurrencyData = async (currencyPair) => {
+export const getCurrencyData = async (currencyPair: string) => {
   const splitCurrencyPair = currencyPair.split("/");
 
   const fromCurrency = splitCurrencyPair[0];
@@ -11,7 +11,7 @@ export const getCurrencyData = async (currencyPair) => {
       `https://www.alphavantage.co/query?function=FX_DAILY&from_symbol=${fromCurrency}&to_symbol=${toCurrency}&outputsize=full&apikey=${apiKey}`
     );
     if (!response.ok) {
-      throw new Error("Something went wrong!");
+      throw new Error("Something went wrong while fetching currency data!");
     }
 
     const data = await response.json();
@@ -26,7 +26,7 @@ export const getCurrencyData = async (currencyPair) => {
         .map((key) => {
           const formatDate = key.split("-");
           return [
-            Date.UTC(formatDate[0], formatDate[1] - 1, formatDate[2]),
+            Date.UTC(+formatDate[0], +formatDate[1] - 1, +formatDate[2]),
             +timeseriesData[key]["1. open"],
             +timeseriesData[key]["2. high"],
             +timeseriesData[key]["3. low"],
@@ -34,7 +34,7 @@ export const getCurrencyData = async (currencyPair) => {
           ];
         });
     }
-  } catch (error) {
+  } catch (error: any) {
     console.error(error.message);
   }
 };

@@ -1,12 +1,12 @@
-import { apiKey } from "./alpha-vantage-key.js";
+import { apiKey } from "./alpha-vantage-key";
 
-export const getStockData = async (stockSymbol) => {
+export const getStockData = async (stockSymbol: string) => {
   try {
     const response = await fetch(
       `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stockSymbol}&outputsize=full&apikey=${apiKey}`
     );
     if (!response.ok) {
-      throw new Error("Something went wrong!");
+      throw new Error("Something went wrong while fetching stock data!");
     }
     const data = await response.json();
 
@@ -20,7 +20,7 @@ export const getStockData = async (stockSymbol) => {
         .map((key) => {
           const formatDate = key.split("-");
           return [
-            Date.UTC(formatDate[0], formatDate[1] - 1, formatDate[2]),
+            Date.UTC(+formatDate[0], +formatDate[1] - 1, +formatDate[2]),
             +timeseriesData[key]["1. open"],
             +timeseriesData[key]["2. high"],
             +timeseriesData[key]["3. low"],
@@ -28,7 +28,7 @@ export const getStockData = async (stockSymbol) => {
           ];
         });
     }
-  } catch (error) {
+  } catch (error: any) {
     console.error(error.message);
   }
 };

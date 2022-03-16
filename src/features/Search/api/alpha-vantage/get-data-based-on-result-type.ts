@@ -3,7 +3,7 @@ import { getCurrencyData } from "./get-currency-data";
 import { getStockData } from "./get-stock-data";
 import * as resultType from "../../constants/result-types";
 
-export const getDataBasedOnResultType = (type, symbol) => {
+export const getDataBasedOnResultType = (type: string, symbol: string) => {
   switch (type) {
     case resultType.EQUITY:
       return getStockData(symbol);

@@ -3,9 +3,16 @@ import ReactDOM from "react-dom";
 import classNames from "classnames";
 
 import { Search } from "../../Search/Search";
-import * as styles from "./Modal.module.css";
+import { ChartModel } from "../../../ts-models/chart.model";
+import styles from "./Modal.module.css";
 
-const ModalOverlay = (props) => {
+interface ModalProps {
+  isModalShowing: boolean;
+  onShowModal: (bool: boolean) => void;
+  onAddChart: (newChart: ChartModel) => void;
+}
+
+const ModalOverlay = (props: ModalProps) => {
   const handleCloseModalClick = () => {
     props.onShowModal(false);
   };
@@ -36,7 +43,7 @@ const ModalOverlay = (props) => {
   );
 };
 
-export const Modal = (props) => {
+export const Modal = (props: ModalProps) => {
   return (
     <>
       {ReactDOM.createPortal(
@@ -45,7 +52,7 @@ export const Modal = (props) => {
           isModalShowing={props.isModalShowing}
           onAddChart={props.onAddChart}
         />,
-        document.getElementById("modal-overlay")
+        document.getElementById("modal-overlay")!
       )}
     </>
   );
