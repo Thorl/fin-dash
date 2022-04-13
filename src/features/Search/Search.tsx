@@ -53,11 +53,13 @@ export const Search = (props: SearchProps) => {
         </h3>
 
         {isLoading && <p className={styles.loading}>Loading...</p>}
+
         {wasSearchMade && searchResults.length === 0 && (
           <p className={styles.noResultsFound}>
             No results found. Please try another search.
           </p>
         )}
+
         {searchResults.map((result, index) => {
           const handleAddChartClick = async () => {
             props.onAddChart({
