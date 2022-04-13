@@ -21,6 +21,7 @@ export const getStockSearchResults = async (
         "Something went wrong while fetching stock search results!"
       );
     }
+
     const data = await response.json();
 
     const stocksList: StockSearchResults[] | undefined = [...data.bestMatches]

@@ -12,12 +12,12 @@ interface ModalProps {
   onAddChart: (newChart: ChartModel) => void;
 }
 
-const ModalOverlay = (props: ModalProps) => {
+export const Modal = (props: ModalProps) => {
   const handleCloseModalClick = () => {
     props.onShowModal(false);
   };
 
-  return (
+  return ReactDOM.createPortal(
     <div
       className={classNames(styles.modal, {
         [styles.modal_show]: props.isModalShowing,
@@ -31,7 +31,7 @@ const ModalOverlay = (props: ModalProps) => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className={styles.modalHeader}>
-          <h2 className={styles.modalTitle}>Add chart</h2>
+          <h2 className={styles.modalTitle}>Search for charts</h2>
           <button
             className={styles.closeModalButton}
             onClick={handleCloseModalClick}
@@ -39,21 +39,7 @@ const ModalOverlay = (props: ModalProps) => {
         </div>
         <Search onAddChart={props.onAddChart} />
       </div>
-    </div>
-  );
-};
-
-export const Modal = (props: ModalProps) => {
-  return (
-    <>
-      {ReactDOM.createPortal(
-        <ModalOverlay
-          onShowModal={props.onShowModal}
-          isModalShowing={props.isModalShowing}
-          onAddChart={props.onAddChart}
-        />,
-        document.getElementById("modal-overlay")!
-      )}
-    </>
+    </div>,
+    document.getElementById("modal-overlay")!
   );
 };
