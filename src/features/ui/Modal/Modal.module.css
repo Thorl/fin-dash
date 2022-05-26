@@ -30,7 +30,7 @@
   max-width: calc(100vw - 2rem);
   overflow-y: auto;
   position: relative;
-  transform: translateY(-200px);
+  transform: translateY(-20rem);
   transition: all 0.3s ease-in-out;
   width: 50rem;
 }

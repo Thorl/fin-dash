@@ -49,11 +49,19 @@ describe("adding and removing a chart", () => {
 
     render(<App />);
 
+    let modal = screen.queryByTestId("modalTest");
+
+    expect(modal).toBeNull();
+
     const openModalButton = screen.queryByRole("button", {
       name: "Add chart",
     })!;
 
     userEvent.click(openModalButton);
+
+    modal = screen.queryByTestId("modalTest");
+
+    expect(modal).toBeInTheDocument();
 
     fetchMock.mock(
       "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=aapl&apikey=PBKENT6HA5JNEIDY",
@@ -76,7 +84,7 @@ describe("adding and removing a chart", () => {
     );
   });
 
-  test("when the '+'-button next to a search result is clicked, a chart is added to the dashboard", async () => {
+  test("when the '+'-button next to a search result is clicked, a chart is added to the dashboard, and its removed when the x-button is clicked", async () => {
     fetchMock.restore();
 
     fetchMock.mock(
@@ -96,9 +104,9 @@ describe("adding and removing a chart", () => {
 
     userEvent.click(closeModalButton);
 
-    const modal = screen.queryByText("Search for charts");
+    const modal = screen.queryByTestId("modalTest");
 
-    expect(modal).toBeNull();
+    expect(modal).not.toBeInTheDocument();
 
     await waitFor(
       () => {
@@ -109,14 +117,12 @@ describe("adding and removing a chart", () => {
       { timeout: 4000 }
     );
 
-    const chartElement = document.querySelector(".chart") as HTMLElement;
+    const chartElement = screen.getByTestId("chartTest");
 
     const removeChartButton = within(chartElement).getByRole("button");
 
     userEvent.click(removeChartButton);
 
-    const chart = screen.queryByText("Apple Inc");
-
-    expect(chart).not.toBeInTheDocument();
+    expect(chartElement).not.toBeInTheDocument();
   });
 });
