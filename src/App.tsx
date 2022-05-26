@@ -32,13 +32,11 @@ export function App() {
         addedCharts={charts && charts}
         onRemoveChart={handleRemoveChart}
       />
-      {isModalShowing && (
-        <Modal
-          isModalShowing={isModalShowing}
-          onShowModal={handleModalVisibility}
-          onAddChart={handleAddChart}
-        />
-      )}
+      <Modal
+        isModalShowing={isModalShowing}
+        onShowModal={handleModalVisibility}
+        onAddChart={handleAddChart}
+      />
     </>
   );
 }

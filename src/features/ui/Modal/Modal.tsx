@@ -28,6 +28,7 @@ export const Modal = (props: ModalProps) => {
         className={classNames(styles.modalContent, {
           [styles.modalContent_show]: props.isModalShowing,
         })}
+        data-testid={`${props.isModalShowing ? "modalTest" : ""}`}
         onClick={(e) => e.stopPropagation()}
       >
         <div className={styles.modalHeader}>

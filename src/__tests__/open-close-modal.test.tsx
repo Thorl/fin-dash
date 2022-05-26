@@ -15,7 +15,7 @@ describe("when the modal is closed", () => {
   test("the modal is NOT shown when 'Add chart'-button hasn't been clicked", () => {
     render(<App />);
 
-    const modal = screen.queryByText("Search for charts");
+    const modal = screen.queryByTestId("modalTest");
 
     expect(modal).toBeNull();
   });
@@ -62,7 +62,7 @@ describe("when the modal is open", () => {
 
     userEvent.click(closeModalButton);
 
-    const modal = screen.queryByText("Search for charts");
+    const modal = screen.queryByTestId("modalTest");
 
     expect(modal).toBeNull();
   });
@@ -74,7 +74,7 @@ describe("when the modal is open", () => {
 
     userEvent.click(modalOverlay);
 
-    const modal = screen.queryByText("Search for charts");
+    const modal = screen.queryByTestId("modalTest");
 
     expect(modal).toBeNull();
   });

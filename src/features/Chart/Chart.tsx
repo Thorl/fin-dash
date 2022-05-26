@@ -34,7 +34,7 @@ export const Chart = (props: ChartProps) => {
   };
 
   return (
-    <div className={styles.chart}>
+    <div className={styles.chart} data-testid="chartTest">
       <button className={styles.closeButton} onClick={handleOnClick}></button>
       <HighchartsReact
         highcharts={Highcharts}
