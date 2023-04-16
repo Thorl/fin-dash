@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/fin-dash/static/css/main.9d742219.chunk.css",
+    "main.js": "/fin-dash/static/js/main.7d8f2ef2.chunk.js",
+    "main.js.map": "/fin-dash/static/js/main.7d8f2ef2.chunk.js.map",
+    "runtime-main.js": "/fin-dash/static/js/runtime-main.dd1ada2a.js",
+    "runtime-main.js.map": "/fin-dash/static/js/runtime-main.dd1ada2a.js.map",
+    "static/js/2.7e22560e.chunk.js": "/fin-dash/static/js/2.7e22560e.chunk.js",
+    "static/js/2.7e22560e.chunk.js.map": "/fin-dash/static/js/2.7e22560e.chunk.js.map",
+    "index.html": "/fin-dash/index.html",
+    "static/css/main.9d742219.chunk.css.map": "/fin-dash/static/css/main.9d742219.chunk.css.map",
+    "static/js/2.7e22560e.chunk.js.LICENSE.txt": "/fin-dash/static/js/2.7e22560e.chunk.js.LICENSE.txt",
+    "static/media/findash-logo.3b5c6564.svg": "/fin-dash/static/media/findash-logo.3b5c6564.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.dd1ada2a.js",
+    "static/js/2.7e22560e.chunk.js",
+    "static/css/main.9d742219.chunk.css",
+    "static/js/main.7d8f2ef2.chunk.js"
+  ]
+}
